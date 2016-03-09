@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+ lang="en" dir="ltr">
+<head>
+  <link rel="stylesheet" href="../../../../m0.tibbo.net/modules/min/g=css_tm&30.css" tppabs="http://m0.tibbo.net/modules/min/g=css_tm&30" type="text/css" />
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>
+    Flow Control and Its Importance and Purpose    [DokuWiki]
+  </title>
+
+  <meta name="generator" content="DokuWiki Release 2009-12-25c &quot;Lemming&quot;" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2008-09-09T14:03:14+0400" />
+<meta name="keywords" content="general,networking,flow_control" />
+<link rel="search" type="application/opensearchdescription+xml" href="/kb/lib/exe/opensearch.php" title="DokuWiki" />
+<link rel="start" href="/kb/" />
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="/kb/feed.php" />
+<link rel="alternate" type="application/rss+xml" title="Current Namespace" href="/kb/feed.php?mode=list&amp;ns=general:networking" />
+<link rel="alternate" type="text/html" title="Plain HTML" href="/kb/_export/xhtml/general/networking/flow_control" />
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="/kb/_export/raw/general/networking/flow_control" />
+<link rel="canonical" href="http://old.tibbo.com/kb/general/networking/flow_control" />
+<link rel="stylesheet" media="all" type="text/css" href="../../lib/exe/css.php-s=all&t=new2&tseed=1273149525.css" tppabs="http://old.tibbo.com/kb/lib/exe/css.php?s=all&t=new2&tseed=1273149525" />
+<link rel="stylesheet" media="screen" type="text/css" href="../../lib/exe/css.php-t=new2&tseed=1273149525.css" tppabs="http://old.tibbo.com/kb/lib/exe/css.php?t=new2&tseed=1273149525" />
+<link rel="stylesheet" media="print" type="text/css" href="../../lib/exe/css.php-s=print&t=new2&tseed=1273149525.css" tppabs="http://old.tibbo.com/kb/lib/exe/css.php?s=print&t=new2&tseed=1273149525" />
+<script type="text/javascript" charset="utf-8" ><!--//--><![CDATA[//><!--
+var NS='general:networking';var JSINFO = {"id":"general:networking:flow_control","namespace":"general:networking"};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php-tseed=1273149525" tppabs="http://old.tibbo.com/kb/lib/exe/js.php?tseed=1273149525" ></script>
+
+  <link rel="shortcut icon" href="/kb/lib/tpl/new2/images/favicon.ico" />
+
+  	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9366256-1']);
+  _gaq.push(['_setDomainName', 'http://old.tibbo.com/kb/general/networking/.tibbo.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body style="margin: 0pt; padding: 17px; background-color: rgb(238, 238, 238); background-image: url(/images/bg.gif); background-repeat: repeat-x;" onload="preload();">
+
+<div id="navbar">
+
+<div class="header">
+ <div class="logo">
+<a href="javascript:if(confirm('http://tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/'" tppabs="http://tibbo.com/"><img src="../../../../i1.tibbo.net/images/logo.png" tppabs="http://i1.tibbo.net/images/logo.png" alt="Serial to Ethernet, Device Servers, Remote Monitoring, Device Management" width="100" height="44" border="0"/></a>
+ </div>
+ <div class="menu_wrapper en">
+<!-- topmenu -->
+<div class="topmenu">
+<div class="menuitems"><ul><li><a href="javascript:if(confirm('http://tibbo.com/products/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/products/'" tppabs="http://tibbo.com/products/">Products</a></li><li><a href="javascript:if(confirm('http://tibbo.com/downloads.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/downloads.html'" tppabs="http://tibbo.com/downloads.html">Downloads</a></li><li><a href="javascript:if(confirm('http://tibbo.com/buy/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/buy/'" tppabs="http://tibbo.com/buy/">Buy</a></li>
+<li>Docs &amp; Support</li><li><a href="javascript:if(confirm('http://tibbo.com/corporate/about  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/corporate/about'" tppabs="http://tibbo.com/corporate/about">Corporate</a></li><li><a href="javascript:if(confirm('http://blog.tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://blog.tibbo.com/'" tppabs="http://blog.tibbo.com/">News</a></li></ul></div>  <div class="search">
+		<form action="http://tibbo.com/search.html" method="get">
+			<input name="q" type="text" value="Search..." onblur="if(this.value=='') this.value='Search...';" onfocus="if(this.value=='Search...') this.value='';"/>
+		</form>
+	</div>
+</div>
+<div class="topmenu">
+<div class="menuitems"><ul><li><a href="javascript:if(confirm('http://tibbo.com/soi/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/soi/'" tppabs="http://tibbo.com/soi/">Serial-over-IP</a></li><li><a href="javascript:if(confirm('http://tibbo.com/basic/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/basic/'" tppabs="http://tibbo.com/basic/">Programmable</a></li><li><a href="javascript:if(confirm('http://aggregate.tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://aggregate.tibbo.com/'" tppabs="http://aggregate.tibbo.com/">Device Management</a></li><li><a href="javascript:if(confirm('http://tibbo.com/ninja/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/ninja/'" tppabs="http://tibbo.com/ninja/">Terminal/Sniffer</a></li><li><a href="javascript:if(confirm('http://tibbo.com/oem/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/oem/'" tppabs="http://tibbo.com/oem/">OEM/ODM</a></li></ul></div>
+
+</div>
+<!-- topmenu / -->
+</div>
+
+
+</div>
+
+	</div>
+
+	<table style="margin-top: 13px;" align="center" border="0" cellpadding="0" cellspacing="0" width="950px">
+
+		<tbody><tr>
+			<td style="background-image: url(/images/tstuff/support-bg.gif);"><a href="javascript:if(confirm('http://tibbo.com/support.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support.html'" tppabs="http://tibbo.com/support.html"><img src="../../../images/tstuff/support-logo.gif" tppabs="http://old.tibbo.com/images/tstuff/support-logo.gif" alt="" border="0" height="94" width="464"/></a><br/></td>
+			<td style="background-image: url(/images/tstuff/support-bg.gif);" align="right"><img src="../../../images/tstuff/support-img.jpg" tppabs="http://old.tibbo.com/images/tstuff/support-img.jpg" alt="" border="0" height="94" width="470"/><br/></td>
+		</tr>
+	</tbody></table>
+
+
+
+
+
+
+<table cellspacing="0" cellpadding="0" border="0" width="950px" align="center">
+		<tr valign="top">
+			<td width="214px">
+
+
+
+
+
+
+
+<div class='new_leftmenu'>
+<ul>
+<li><a href="javascript:if(confirm('http://tibbo.com/support.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support.html'" tppabs="http://tibbo.com/support.html">Support Home</a></li>
+<li><a href="javascript:if(confirm('http://tibbo.com/kb/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/kb/'" tppabs="http://tibbo.com/kb/" style='color:Gray;'>Knowledge Base</a></li>
+<li><a href="javascript:if(confirm('http://docs.tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://docs.tibbo.com/'" tppabs="http://docs.tibbo.com/">Documentation</a></li>
+<li><a href="javascript:if(confirm('http://tibbo.com/support/contact  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support/contact'" tppabs="http://tibbo.com/support/contact">Contact Support</a></li>
+<li><a href="javascript:if(confirm('http://getsatisfaction.com/tibbo  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://getsatisfaction.com/tibbo'" tppabs="http://getsatisfaction.com/tibbo">Unofficial Forum</a></li>
+</ul>
+</div>
+</td>
+
+<!-- t / -->
+
+			<td><img src="../../../images/spacer.gif" tppabs="http://old.tibbo.com/images/spacer.gif" alt="" width="12" height="12px" border="0"/></td>
+			<td width="724px"><!-- t -->
+
+<div class="new_main_frame" style="margin-top:12px">
+<!-- real main body -->
+<!--
+ee
+{MYVAR}
+xxx
+-->
+<div class="dokuwiki">
+  <div class="stylehead">
+
+      <div class="clearer"></div>
+    </div>
+
+
+
+
+
+    
+  <div class="page">
+    <!-- wikipage start -->
+
+
+
+<h1><a name="flow_control_and_its_importance_and_purpose" id="flow_control_and_its_importance_and_purpose">Flow Control and Its Importance and Purpose</a></h1>
+<div class="level1">
+
+<p>
+
+<strong>Question:</strong> We are able to communicate with our Serial Device via the DS100 (EM100) but there are a lot of data errors. It seems that data bytes are randomly lost. What is the problem here?
+</p>
+
+<p>
+<strong>Answer:</strong> The most frequent cause of data loss is some problem with the handshaking (RTS/CTS) between your serial device and the Device Server. Using handshaking is recommended whenever possible. Just because your serial device could operate without handshaking when connected directly to the PC doesn&#039;t mean that it will also work fine without handshaking when connected to the Device Server. Here is why:
+</p>
+
+<p>
+Unlike a serial cable which serves exclusively to connect together two devices, the Ethernet (TCP/IP) is a shared media that is used by many devices at the same time. Depending on the network conditions the DS100 may not be able to route all the serial data as it arrives into the serial port, so this data may need to be buffered. The buffer has a limited size (see below) and, to prevent it from overflowing, you need to enable RTS/CTS handshaking between the DS100 and your serial device.
+</p>
+
+<p>
+The procedure below will help you determine if your RTS/CTS handshaking is enabled and is functioning correctly. The problem with handshaking may be:
+
+</p>
+<ul>
+<li class="level1"><div class="li"> In the Settings or current operating parameters of the Device Server.</div>
+</li>
+<li class="level1"><div class="li"> In your serial device.</div>
+</li>
+<li class="level1"><div class="li"> In the wiring of the cable which connects the Device Server to your serial device.</div>
+</li>
+</ul>
+
+</div>
+
+<h2><a name="make_sure_the_device_server_is_operating_with_rtscts_handshaking_enabled" id="make_sure_the_device_server_is_operating_with_rtscts_handshaking_enabled">Make Sure The Device Server Is Operating With RTS/CTS Handshaking Enabled</a></h2>
+<div class="level2">
+
+<p>
+
+One Setting and one Parameter define whether the Device Server is running with the Flow Control enabled or disabled:
+
+</p>
+<ul>
+<li class="level1"><div class="li"> The Flow Control (FC) Setting of the Device Server which is a “permanent” parameter that is kept in the Device Server&#039;s non-volatile memory and is “recalled” each time the Device Server is powered up. This Setting (like all other Settings) can be edited through the DS Manager; you can find it on the Serial Properties page in the DS Properties dialog. Connection Wizard always sets the Flow Control to “RTS/CTS” (enabled)</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> The Flow Control “on-the-fly” Parameter that may be sent from the PC to temporarily override the Flow Control Setting. Parameters are usually supplied by a Virtual Serial Port (VSP) when it is opened by the application software. Parameters provide a way to adjust the serial port of the Device Server to function as needed by the application software. Parameters will only work when <strong>(a)</strong> The VSP is set to send the on-the-fly Parameters; and <strong>(b)</strong> the DS100 is set to accept the on-the-fly Parameters. Connection Wizard always enables Parameter passing.</div>
+</li>
+</ul>
+
+<p>
+
+The bottom line of all this is that the DS100 may be running with RTS/CTS disabled even if the Flow Control is enabled in the DS100&#039;s Settings. The flowchart on Figure 4 shows the “action plan” for making sure that the DS100 is running with RTS/CTS enabled.
+</p>
+
+<p>
+
+<a href="javascript:if(confirm('http://www.tibbo.com/images/articles/checking%20RTS-CTS.gif  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.tibbo.com/images/articles/checking%20RTS-CTS.gif'" tppabs="http://old.tibbo.com/kb/lib/exe/fetch.php?hash=a95d08&media=http%3A%2F%2Fwww.tibbo.com%2Fimages%2Farticles%2Fchecking%2520RTS-CTS.gif" class="media" title="http://www.tibbo.com/images/articles/checking%20RTS-CTS.gif"><img src="../../../../www.tibbo.com/images/articles/checking RTS-CTS.gif" tppabs="http://old.tibbo.com/kb/lib/exe/fetch.php?hash=a95d08&media=http%3A%2F%2Fwww.tibbo.com%2Fimages%2Farticles%2Fchecking%2520RTS-CTS.gif" class="media" alt="" /></a>
+</p>
+
+<p>
+<em>Figure 1. “Action plan” flowchart</em>
+</p>
+
+<p>
+If your serial application <strong>does not</strong> use the VSP but is working with the Device Server directly via the TCP/IP or UDP/IP protocol then you needn&#039;t worry about Parameters (unless, of course, you have implemented Parameter passing in your application software). All you need to do is make sure that the Flow Control Setting of the Device Server is set to “RTS/CTS”.
+</p>
+
+<p>
+If your serial application <strong>does</strong> use the VSP, you need to check if on-the-fly Parameter passing is enabled (you need to check both the VSP side and the Device Server side). 
+
+</p>
+<ul>
+<li class="level1"><div class="li"> If on-the-fly Parameter passing is <strong>disabled</strong> then all you need to do is make sure that the Flow Control Setting of the Device Server is set to “RTS/CTS”. </div>
+</li>
+</ul>
+
+<p>
+
+  * If on-the-fly Parameter passing is <strong>enabled</strong> then the value of the Flow Control Setting doesn&#039;t really matter. You need to make sure that:
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Your application software, when opening the VSP, enables the RTS/CTS flow control. We cannot provide an advice on how to do this for all programming languages. For Visual Basic this means setting the Handshaking Property of the MSComm control to “2-comRTS”</div>
+</li>
+</ul>
+
+<p>
+
+  * On-the-fly parameters sent by the VSP reach the Device Server. This may be verified using the Port Monitor. The Port Monitor run in the system tray. Double-click on it to open, then push the “Clear log” button to clear the window. Launch your application software on the PC and perform some port-related activity so that the VSP is opened. The VSP will send the Flow Control Parameter (among others) to the Device Server. A “green” record will appear in the Port Monitor window if the parameter was sent successfully (and do make sure that RTS/CTS gets enabled!). Errors will be highlighted in different color. Investigate the problem when errors happen. 
+</p>
+
+</div>
+
+<h2><a name="the_problem_may_be_in_your_serial_device" id="the_problem_may_be_in_your_serial_device">The Problem May Be in Your Serial Device</a></h2>
+<div class="level2">
+
+<p>
+
+If you have made sure that the DS100 is operating with the RTS/CTS Flow Control enabled but you are still losing data then this may be because your serial device is running with RTS/CTS disabled.
+</p>
+
+</div>
+
+<h2><a name="the_problem_may_be_in_the_serial_cable" id="the_problem_may_be_in_the_serial_cable">The Problem May Be in The Serial Cable</a></h2>
+<div class="level2">
+
+<p>
+
+The problem may also be in an incorrect (incompatible) wiring of the serial cable that connects the DS100 to your serial device. The serial cable is a “simple thing” yet its wiring is at the heart of a problem in many cases.
+</p>
+
+<p>
+The problem stems from unclear definition of what is the RTS and what is the CTS signal. Many know that these two are at pins #7 and #8 (for 9-pin serial cable) and that one of them is supposed to be an input and another one- an output. But which one is which? Some manufacturers define the input and output with respect to the PC (to which the serial device is supposed to be attached). Some manufacturers define the input and output with respect to the serial device itself. 
+</p>
+
+<p>
+The net result is that there are serial devices on the market with exactly opposite wiring. You may think that RTS pin on your serial device&#039;s connector is an output while, in fact, it is an input (or vice versa). The whole thing is so cumbersome that here at Tibbo we have completely abandoned calling the wires RTS or CTS but instead refer to them as “handshaking input and output” (always with respect to the serial device itself).
+</p>
+
+<p>
+As a result of all this, your serial cable might be connecting the “handshaking output” of the DS100 to the “handshaking output” of your serial device (and “input” to an “input”). Obviously, this is wrong! The “output” on one side must be connected to the “input” on another side and vise versa!
+</p>
+
+</div>
+
+<h2><a name="the_only_way_to_know_for_sure" id="the_only_way_to_know_for_sure">The ONLY Way to Know For Sure</a></h2>
+<div class="level2">
+
+<p>
+
+Now we will tell you the only 100% error-proof method of finding out if your wiring is correct. Don&#039;t just “check the manual”, do as we advise!
+</p>
+
+<p>
+Take any kind of meter that is capable of measuring voltage, and measure the voltage on both RTS and CTS lines (with respect to the ground). You need to perform this test with both the DS100 and your serial device powered and the serial cable connected to both of them at the same time (yes, finding a way to measure the voltage may be tricky but you will defeat the purpose of this test if you disconnect the cable on either side to make the measurement on the connector pins). The measurement arrangement is shown on Figure 2.
+</p>
+
+<p>
+<a href="javascript:if(confirm('http://www.tibbo.com/images/articles/checking%20RTSCTS%20wiring.gif  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.tibbo.com/images/articles/checking%20RTSCTS%20wiring.gif'" tppabs="http://old.tibbo.com/kb/lib/exe/fetch.php?hash=863bc5&media=http%3A%2F%2Fwww.tibbo.com%2Fimages%2Farticles%2Fchecking%2520RTSCTS%2520wiring.gif" class="media" title="http://www.tibbo.com/images/articles/checking%20RTSCTS%20wiring.gif"><img src="../../../../www.tibbo.com/images/articles/checking RTSCTS wiring.gif" tppabs="http://old.tibbo.com/kb/lib/exe/fetch.php?hash=863bc5&media=http%3A%2F%2Fwww.tibbo.com%2Fimages%2Farticles%2Fchecking%2520RTSCTS%2520wiring.gif" class="media" alt="" /></a>
+</p>
+
+<p>
+<em>Figure 2. Making sure that RTS/CTS lines are wired correctly</em>
+</p>
+
+<p>
+When the cable wiring is correct (compatible with your serial device) then there will be some potential (about 5-12V, doesn&#039;t matter positive or negative) on both lines. If the wiring is incorrect then there will be a potential on one of the lines and nothing (i.e. just some “millivolts”, definitely &lt;1V) on another line. If you discover then this is so then you must “swap” the CTS and RTS lines. That is, if you had a connection like this (“cross”):
+</p>
+
+<p>
+<strong>#7  –&gt;  #8</strong>
+</p>
+
+<p>
+<strong>#8  –&gt;  #7</strong>
+</p>
+
+<p>
+
+then you will need to change it to this (“direct”):
+</p>
+
+<p>
+<strong>#7  –&gt;  #7</strong>
+</p>
+
+<p>
+<strong>#8  –&gt;  #8</strong>
+</p>
+
+<p>
+
+And if you had the “direct” connection then you will have to change it to “cross”.
+</p>
+
+<p>
+After you have rewired the cable please check the voltage again. Now you should have a “sizeable” voltage of 5-12V on both RTS and CTS lines!
+</p>
+
+</div>
+
+<h2><a name="conclusion" id="conclusion">Conclusion</a></h2>
+<div class="level2">
+
+<p>
+
+We hope that the above has helped you sort out the problem with the handshaking. If the problem is still there please let us know- we will try to help you find out the solution!
+</p>
+
+</div>
+
+    <!-- wikipage stop -->
+  </div>
+
+
+
+</div>
+<!-- real main body/ -->
+</div>
+				<br/>
+				<p style="color:#828282;margin-left:15px;font-size:12px">&copy; Tibbo Technology Inc. 2001-2009&nbsp;&nbsp;
+
+<a href="javascript:if(confirm('http://old.tibbo.com/corporate/contacts.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://old.tibbo.com/corporate/contacts.html'" tppabs="http://old.tibbo.com/corporate/contacts.html">Contact Us</a>&nbsp;|&nbsp;<a href="javascript:if(confirm('http://old.tibbo.com/account.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://old.tibbo.com/account.html'" tppabs="http://old.tibbo.com/account.html">Account</a>				</p>
+			</td>
+		</tr>
+	</table>
+
+
+
+  
+  
+
+  <div class="clearer">&nbsp;</div>
+
+  
+
+
+<div class="no"><img src="../../lib/exe/indexer.php-id=general-networking-flow_control&1457462940.gif" tppabs="http://old.tibbo.com/kb/lib/exe/indexer.php?id=general%3Anetworking%3Aflow_control&1457462940" width="1" height="1" alt=""  /></div>
+
+
+</body>
+</html>

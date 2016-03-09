@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+ lang="en" dir="ltr">
+<head>
+  <link rel="stylesheet" href="../../../../m0.tibbo.net/modules/min/g=css_tm&30.css" tppabs="http://m0.tibbo.net/modules/min/g=css_tm&30" type="text/css" />
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>
+    My serial data gets split into several packets. What do I do?    [DokuWiki]
+  </title>
+
+  <meta name="generator" content="DokuWiki Release 2009-12-25c &quot;Lemming&quot;" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2010-02-22T15:13:37+0300" />
+<meta name="keywords" content="fixed,networking,data_split_packets" />
+<link rel="search" type="application/opensearchdescription+xml" href="/kb/lib/exe/opensearch.php" title="DokuWiki" />
+<link rel="start" href="/kb/" />
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="/kb/feed.php" />
+<link rel="alternate" type="application/rss+xml" title="Current Namespace" href="/kb/feed.php?mode=list&amp;ns=fixed:networking" />
+<link rel="alternate" type="text/html" title="Plain HTML" href="/kb/_export/xhtml/fixed/networking/data_split_packets" />
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="/kb/_export/raw/fixed/networking/data_split_packets" />
+<link rel="canonical" href="http://old.tibbo.com/kb/fixed/networking/data_split_packets" />
+<link rel="stylesheet" media="all" type="text/css" href="../../lib/exe/css.php-s=all&t=new2&tseed=1273149525.css" tppabs="http://old.tibbo.com/kb/lib/exe/css.php?s=all&t=new2&tseed=1273149525" />
+<link rel="stylesheet" media="screen" type="text/css" href="../../lib/exe/css.php-t=new2&tseed=1273149525.css" tppabs="http://old.tibbo.com/kb/lib/exe/css.php?t=new2&tseed=1273149525" />
+<link rel="stylesheet" media="print" type="text/css" href="../../lib/exe/css.php-s=print&t=new2&tseed=1273149525.css" tppabs="http://old.tibbo.com/kb/lib/exe/css.php?s=print&t=new2&tseed=1273149525" />
+<script type="text/javascript" charset="utf-8" ><!--//--><![CDATA[//><!--
+var NS='fixed:networking';var JSINFO = {"id":"fixed:networking:data_split_packets","namespace":"fixed:networking"};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php-tseed=1273149525" tppabs="http://old.tibbo.com/kb/lib/exe/js.php?tseed=1273149525" ></script>
+
+  <link rel="shortcut icon" href="/kb/lib/tpl/new2/images/favicon.ico" />
+
+  	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9366256-1']);
+  _gaq.push(['_setDomainName', 'http://old.tibbo.com/kb/fixed/networking/.tibbo.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body style="margin: 0pt; padding: 17px; background-color: rgb(238, 238, 238); background-image: url(/images/bg.gif); background-repeat: repeat-x;" onload="preload();">
+
+<div id="navbar">
+
+<div class="header">
+ <div class="logo">
+<a href="javascript:if(confirm('http://tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/'" tppabs="http://tibbo.com/"><img src="../../../../i1.tibbo.net/images/logo.png" tppabs="http://i1.tibbo.net/images/logo.png" alt="Serial to Ethernet, Device Servers, Remote Monitoring, Device Management" width="100" height="44" border="0"/></a>
+ </div>
+ <div class="menu_wrapper en">
+<!-- topmenu -->
+<div class="topmenu">
+<div class="menuitems"><ul><li><a href="javascript:if(confirm('http://tibbo.com/products/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/products/'" tppabs="http://tibbo.com/products/">Products</a></li><li><a href="javascript:if(confirm('http://tibbo.com/downloads.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/downloads.html'" tppabs="http://tibbo.com/downloads.html">Downloads</a></li><li><a href="javascript:if(confirm('http://tibbo.com/buy/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/buy/'" tppabs="http://tibbo.com/buy/">Buy</a></li>
+<li>Docs &amp; Support</li><li><a href="javascript:if(confirm('http://tibbo.com/corporate/about  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/corporate/about'" tppabs="http://tibbo.com/corporate/about">Corporate</a></li><li><a href="javascript:if(confirm('http://blog.tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://blog.tibbo.com/'" tppabs="http://blog.tibbo.com/">News</a></li></ul></div>  <div class="search">
+		<form action="http://tibbo.com/search.html" method="get">
+			<input name="q" type="text" value="Search..." onblur="if(this.value=='') this.value='Search...';" onfocus="if(this.value=='Search...') this.value='';"/>
+		</form>
+	</div>
+</div>
+<div class="topmenu">
+<div class="menuitems"><ul><li><a href="javascript:if(confirm('http://tibbo.com/soi/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/soi/'" tppabs="http://tibbo.com/soi/">Serial-over-IP</a></li><li><a href="javascript:if(confirm('http://tibbo.com/basic/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/basic/'" tppabs="http://tibbo.com/basic/">Programmable</a></li><li><a href="javascript:if(confirm('http://aggregate.tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://aggregate.tibbo.com/'" tppabs="http://aggregate.tibbo.com/">Device Management</a></li><li><a href="javascript:if(confirm('http://tibbo.com/ninja/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/ninja/'" tppabs="http://tibbo.com/ninja/">Terminal/Sniffer</a></li><li><a href="javascript:if(confirm('http://tibbo.com/oem/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/oem/'" tppabs="http://tibbo.com/oem/">OEM/ODM</a></li></ul></div>
+
+</div>
+<!-- topmenu / -->
+</div>
+
+
+</div>
+
+	</div>
+
+	<table style="margin-top: 13px;" align="center" border="0" cellpadding="0" cellspacing="0" width="950px">
+
+		<tbody><tr>
+			<td style="background-image: url(/images/tstuff/support-bg.gif);"><a href="javascript:if(confirm('http://tibbo.com/support.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support.html'" tppabs="http://tibbo.com/support.html"><img src="../../../images/tstuff/support-logo.gif" tppabs="http://old.tibbo.com/images/tstuff/support-logo.gif" alt="" border="0" height="94" width="464"/></a><br/></td>
+			<td style="background-image: url(/images/tstuff/support-bg.gif);" align="right"><img src="../../../images/tstuff/support-img.jpg" tppabs="http://old.tibbo.com/images/tstuff/support-img.jpg" alt="" border="0" height="94" width="470"/><br/></td>
+		</tr>
+	</tbody></table>
+
+
+
+
+
+
+<table cellspacing="0" cellpadding="0" border="0" width="950px" align="center">
+		<tr valign="top">
+			<td width="214px">
+
+
+
+
+
+
+
+<div class='new_leftmenu'>
+<ul>
+<li><a href="javascript:if(confirm('http://tibbo.com/support.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support.html'" tppabs="http://tibbo.com/support.html">Support Home</a></li>
+<li><a href="javascript:if(confirm('http://tibbo.com/kb/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/kb/'" tppabs="http://tibbo.com/kb/" style='color:Gray;'>Knowledge Base</a></li>
+<li><a href="javascript:if(confirm('http://docs.tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://docs.tibbo.com/'" tppabs="http://docs.tibbo.com/">Documentation</a></li>
+<li><a href="javascript:if(confirm('http://tibbo.com/support/contact  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support/contact'" tppabs="http://tibbo.com/support/contact">Contact Support</a></li>
+<li><a href="javascript:if(confirm('http://getsatisfaction.com/tibbo  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://getsatisfaction.com/tibbo'" tppabs="http://getsatisfaction.com/tibbo">Unofficial Forum</a></li>
+</ul>
+</div>
+</td>
+
+<!-- t / -->
+
+			<td><img src="../../../images/spacer.gif" tppabs="http://old.tibbo.com/images/spacer.gif" alt="" width="12" height="12px" border="0"/></td>
+			<td width="724px"><!-- t -->
+
+<div class="new_main_frame" style="margin-top:12px">
+<!-- real main body -->
+<!--
+ee
+{MYVAR}
+xxx
+-->
+<div class="dokuwiki">
+  <div class="stylehead">
+
+      <div class="clearer"></div>
+    </div>
+
+
+
+
+
+    
+  <div class="page">
+    <!-- wikipage start -->
+
+
+
+<h1><a name="my_serial_data_gets_split_into_several_packets_what_do_i_do" id="my_serial_data_gets_split_into_several_packets_what_do_i_do">My serial data gets split into several packets. What do I do?</a></h1>
+<div class="level1">
+
+<p>
+
+<strong>Question:</strong> I&#039;m trying to get Data from a Barcode terminal connected via RS232 to the Tibbo DS100. I get the Data, but I get it sometimes all in one packet and somtimes in several packets. 
+</p>
+
+<p>
+How can I know that I got the last data bytes? Does the Tibbo makes a Close connection? I get some of the data in few packeges and don&#039;t know how to paste them.
+</p>
+
+<p>
+<strong>Answer:</strong> The data is split up because that&#039;s what TCP communications do. An inherent part of TCP is breaking packets up and re-assemebeling them on the other end.
+</p>
+
+<p>
+However, there are two possible solutions for this:
+
+</p>
+<ol>
+<li class="level1"><div class="li"> Use a <strong>START</strong> char and a <strong>STOP</strong> char for the barcode scanner. You can configure the scanner itself using the manual that came with it, with barcode scan codes inside. This way, you can tell your program that a packet starts with “X” (just an example) and ends with “Z”, and that all the data in between is just one message, and no matter in how many packets it comes. Of course, make sure you select characters which don&#039;t appear in the barcode labels themselves (don&#039;t choose a number or anything like that, which might show up on a barcode label).</div>
+</li>
+<li class="level1"><div class="li"> Another option is using UDP. If you set the transport protocol to UDP (and listen on a UDP socket, of course), you can make the whole message come as one packet. </div>
+</li>
+</ol>
+
+<p>
+
+You do this by using the STOP character, but this time configuring it on the DS as well, as described in the following links:
+
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="javascript:if(confirm('http://docs.tibbo.com/soism/setting_u1.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://docs.tibbo.com/soism/setting_u1.htm'" tppabs="http://docs.tibbo.com/soism/setting_u1.htm" class="urlextern" title="http://docs.tibbo.com/soism/setting_u1.htm"  rel="nofollow">Use Stop Character (U1) setting</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="javascript:if(confirm('http://docs.tibbo.com/soism/setting_e1.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://docs.tibbo.com/soism/setting_e1.htm'" tppabs="http://docs.tibbo.com/soism/setting_e1.htm" class="urlextern" title="http://docs.tibbo.com/soism/setting_e1.htm"  rel="nofollow">Stop Character Code (E1) setting</a></div>
+</li>
+</ul>
+
+<p>
+
+But <strong>be warned</strong>: UDP is a less reliable medium. It&#039;s a connectionless protocol– this means that it just sends the packets away, and doesn&#039;t really check if they arrived.
+</p>
+
+<p>
+Also, if you&#039;re across a router (or several routers like on a large <acronym title="Wide Area Network">WAN</acronym>), the UDP packets might not actually make it to the other side. Routers and other switching equipment usually prioritize packets, and give a higher priority to TCP. So if the router is under load when it gets your UDP packet, it might just drop it in favor of other, TCP packets.
+</p>
+
+<p>
+In short, what you should do is:
+
+</p>
+<ol>
+<li class="level1"><div class="li">  Set the reader to use START and STOP chars.</div>
+</li>
+<li class="level1"><div class="li">  Leave the DS as TCP.</div>
+</li>
+<li class="level1"><div class="li">  Make your program understand the data stream with the START and STOP chars.</div>
+</li>
+</ol>
+
+<p>
+
+If for some reason this doesn&#039;t work for you, try the UDP option.
+</p>
+
+<p>
+And if all else fails, you can always fill out a <a href="javascript:if(confirm('http://tibbo.com/support/contact  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support/contact'" tppabs="http://tibbo.com/support/contact" class="urlextern" title="http://tibbo.com/support/contact"  rel="nofollow">support request form</a>.
+</p>
+
+</div>
+
+    <!-- wikipage stop -->
+  </div>
+
+
+
+</div>
+<!-- real main body/ -->
+</div>
+				<br/>
+				<p style="color:#828282;margin-left:15px;font-size:12px">&copy; Tibbo Technology Inc. 2001-2009&nbsp;&nbsp;
+
+<a href="javascript:if(confirm('http://old.tibbo.com/corporate/contacts.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://old.tibbo.com/corporate/contacts.html'" tppabs="http://old.tibbo.com/corporate/contacts.html">Contact Us</a>&nbsp;|&nbsp;<a href="javascript:if(confirm('http://old.tibbo.com/account.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://old.tibbo.com/account.html'" tppabs="http://old.tibbo.com/account.html">Account</a>				</p>
+			</td>
+		</tr>
+	</table>
+
+
+
+  
+  
+
+  <div class="clearer">&nbsp;</div>
+
+  
+
+
+<div class="no"><img src="../../lib/exe/indexer.php-id=fixed-networking-data_split_packets&1457462884.gif" tppabs="http://old.tibbo.com/kb/lib/exe/indexer.php?id=fixed%3Anetworking%3Adata_split_packets&1457462884" width="1" height="1" alt=""  /></div>
+
+
+</body>
+</html>

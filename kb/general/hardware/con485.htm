@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+ lang="en" dir="ltr">
+<head>
+  <link rel="stylesheet" href="../../../../m0.tibbo.net/modules/min/g=css_tm&30.css" tppabs="http://m0.tibbo.net/modules/min/g=css_tm&30" type="text/css" />
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>
+    Connecting a DS100B to a GigaTMS Con485    [DokuWiki]
+  </title>
+
+  <meta name="generator" content="DokuWiki Release 2009-12-25c &quot;Lemming&quot;" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2010-02-22T15:29:25+0300" />
+<meta name="keywords" content="general,hardware,con485" />
+<link rel="search" type="application/opensearchdescription+xml" href="/kb/lib/exe/opensearch.php" title="DokuWiki" />
+<link rel="start" href="/kb/" />
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="/kb/feed.php" />
+<link rel="alternate" type="application/rss+xml" title="Current Namespace" href="/kb/feed.php?mode=list&amp;ns=general:hardware" />
+<link rel="alternate" type="text/html" title="Plain HTML" href="/kb/_export/xhtml/general/hardware/con485" />
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="/kb/_export/raw/general/hardware/con485" />
+<link rel="canonical" href="http://old.tibbo.com/kb/general/hardware/con485" />
+<link rel="stylesheet" media="all" type="text/css" href="../../lib/exe/css.php-s=all&t=new2&tseed=1273149525.css" tppabs="http://old.tibbo.com/kb/lib/exe/css.php?s=all&t=new2&tseed=1273149525" />
+<link rel="stylesheet" media="screen" type="text/css" href="../../lib/exe/css.php-t=new2&tseed=1273149525.css" tppabs="http://old.tibbo.com/kb/lib/exe/css.php?t=new2&tseed=1273149525" />
+<link rel="stylesheet" media="print" type="text/css" href="../../lib/exe/css.php-s=print&t=new2&tseed=1273149525.css" tppabs="http://old.tibbo.com/kb/lib/exe/css.php?s=print&t=new2&tseed=1273149525" />
+<script type="text/javascript" charset="utf-8" ><!--//--><![CDATA[//><!--
+var NS='general:hardware';var JSINFO = {"id":"general:hardware:con485","namespace":"general:hardware"};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php-tseed=1273149525" tppabs="http://old.tibbo.com/kb/lib/exe/js.php?tseed=1273149525" ></script>
+
+  <link rel="shortcut icon" href="/kb/lib/tpl/new2/images/favicon.ico" />
+
+  	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9366256-1']);
+  _gaq.push(['_setDomainName', 'http://old.tibbo.com/kb/general/hardware/.tibbo.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body style="margin: 0pt; padding: 17px; background-color: rgb(238, 238, 238); background-image: url(/images/bg.gif); background-repeat: repeat-x;" onload="preload();">
+
+<div id="navbar">
+
+<div class="header">
+ <div class="logo">
+<a href="javascript:if(confirm('http://tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/'" tppabs="http://tibbo.com/"><img src="../../../../i1.tibbo.net/images/logo.png" tppabs="http://i1.tibbo.net/images/logo.png" alt="Serial to Ethernet, Device Servers, Remote Monitoring, Device Management" width="100" height="44" border="0"/></a>
+ </div>
+ <div class="menu_wrapper en">
+<!-- topmenu -->
+<div class="topmenu">
+<div class="menuitems"><ul><li><a href="javascript:if(confirm('http://tibbo.com/products/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/products/'" tppabs="http://tibbo.com/products/">Products</a></li><li><a href="javascript:if(confirm('http://tibbo.com/downloads.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/downloads.html'" tppabs="http://tibbo.com/downloads.html">Downloads</a></li><li><a href="javascript:if(confirm('http://tibbo.com/buy/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/buy/'" tppabs="http://tibbo.com/buy/">Buy</a></li>
+<li>Docs &amp; Support</li><li><a href="javascript:if(confirm('http://tibbo.com/corporate/about  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/corporate/about'" tppabs="http://tibbo.com/corporate/about">Corporate</a></li><li><a href="javascript:if(confirm('http://blog.tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://blog.tibbo.com/'" tppabs="http://blog.tibbo.com/">News</a></li></ul></div>  <div class="search">
+		<form action="http://tibbo.com/search.html" method="get">
+			<input name="q" type="text" value="Search..." onblur="if(this.value=='') this.value='Search...';" onfocus="if(this.value=='Search...') this.value='';"/>
+		</form>
+	</div>
+</div>
+<div class="topmenu">
+<div class="menuitems"><ul><li><a href="javascript:if(confirm('http://tibbo.com/soi/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/soi/'" tppabs="http://tibbo.com/soi/">Serial-over-IP</a></li><li><a href="javascript:if(confirm('http://tibbo.com/basic/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/basic/'" tppabs="http://tibbo.com/basic/">Programmable</a></li><li><a href="javascript:if(confirm('http://aggregate.tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://aggregate.tibbo.com/'" tppabs="http://aggregate.tibbo.com/">Device Management</a></li><li><a href="javascript:if(confirm('http://tibbo.com/ninja/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/ninja/'" tppabs="http://tibbo.com/ninja/">Terminal/Sniffer</a></li><li><a href="javascript:if(confirm('http://tibbo.com/oem/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/oem/'" tppabs="http://tibbo.com/oem/">OEM/ODM</a></li></ul></div>
+
+</div>
+<!-- topmenu / -->
+</div>
+
+
+</div>
+
+	</div>
+
+	<table style="margin-top: 13px;" align="center" border="0" cellpadding="0" cellspacing="0" width="950px">
+
+		<tbody><tr>
+			<td style="background-image: url(/images/tstuff/support-bg.gif);"><a href="javascript:if(confirm('http://tibbo.com/support.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support.html'" tppabs="http://tibbo.com/support.html"><img src="../../../images/tstuff/support-logo.gif" tppabs="http://old.tibbo.com/images/tstuff/support-logo.gif" alt="" border="0" height="94" width="464"/></a><br/></td>
+			<td style="background-image: url(/images/tstuff/support-bg.gif);" align="right"><img src="../../../images/tstuff/support-img.jpg" tppabs="http://old.tibbo.com/images/tstuff/support-img.jpg" alt="" border="0" height="94" width="470"/><br/></td>
+		</tr>
+	</tbody></table>
+
+
+
+
+
+
+<table cellspacing="0" cellpadding="0" border="0" width="950px" align="center">
+		<tr valign="top">
+			<td width="214px">
+
+
+
+
+
+
+
+<div class='new_leftmenu'>
+<ul>
+<li><a href="javascript:if(confirm('http://tibbo.com/support.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support.html'" tppabs="http://tibbo.com/support.html">Support Home</a></li>
+<li><a href="javascript:if(confirm('http://tibbo.com/kb/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/kb/'" tppabs="http://tibbo.com/kb/" style='color:Gray;'>Knowledge Base</a></li>
+<li><a href="javascript:if(confirm('http://docs.tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://docs.tibbo.com/'" tppabs="http://docs.tibbo.com/">Documentation</a></li>
+<li><a href="javascript:if(confirm('http://tibbo.com/support/contact  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support/contact'" tppabs="http://tibbo.com/support/contact">Contact Support</a></li>
+<li><a href="javascript:if(confirm('http://getsatisfaction.com/tibbo  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://getsatisfaction.com/tibbo'" tppabs="http://getsatisfaction.com/tibbo">Unofficial Forum</a></li>
+</ul>
+</div>
+</td>
+
+<!-- t / -->
+
+			<td><img src="../../../images/spacer.gif" tppabs="http://old.tibbo.com/images/spacer.gif" alt="" width="12" height="12px" border="0"/></td>
+			<td width="724px"><!-- t -->
+
+<div class="new_main_frame" style="margin-top:12px">
+<!-- real main body -->
+<!--
+ee
+{MYVAR}
+xxx
+-->
+<div class="dokuwiki">
+  <div class="stylehead">
+
+      <div class="clearer"></div>
+    </div>
+
+
+
+
+
+    
+  <div class="page">
+    <!-- wikipage start -->
+
+
+
+<h1><a name="connecting_a_ds100b_to_a_gigatms_con485" id="connecting_a_ds100b_to_a_gigatms_con485">Connecting a DS100B to a GigaTMS Con485</a></h1>
+<div class="level1">
+
+<p>
+
+<strong>Question:</strong> How do I connect a DS100B to a GigaTMS Con485 device?
+</p>
+
+<p>
+<strong>Answer:</strong> The Con485 is a converter between RS232 and RS485 produced by <a href="javascript:if(confirm('http://www.gigatms.com.tw/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.gigatms.com.tw/'" tppabs="http://www.gigatms.com.tw/" class="urlextern" title="http://www.gigatms.com.tw"  rel="nofollow">GigaTMS</a>. This article covers how to connect it to the DS100B for testing purposes.
+
+</p>
+<ol>
+<li class="level1"><div class="li"> First, set a baudrate on the Con485. For example, select 9600.</div>
+</li>
+<li class="level1"><div class="li"> Make sure this baudrate is set also for the DS. This can be done in settings, or using on-the-fly commands when you open the connection.</div>
+</li>
+<li class="level1"><div class="li"> Flow Control must be “Idle or Remote”, since there is no RTS/CTS in RS485.</div>
+</li>
+<li class="level1"><div class="li"> Next, make sure “serial interface” is “2- automatic”.</div>
+</li>
+<li class="level1"><div class="li"> Set SW1 and SW2 on the back of the DS100B to ON.</div>
+</li>
+<li class="level1"><div class="li"> Reboot the DS.</div>
+</li>
+<li class="level1"><div class="li"> Attach a TB100 adaptor to the DS100B.</div>
+</li>
+<li class="level1"><div class="li"> RS485 consists of two wires: + and -. There is no ground. TB100 allows for a 4-wire interface - full duplex with two pairs, TX+/- and RX+/-. But Con485 requires only two wires. So, for the DS100B to work properly, you need to connect RX+ to TX+ and RX- to TX-. This turns a 4-wire interface into a 2-wire interface. To do this, just turn on SW1 and SW2 on the TB100, and you&#039;re done.</div>
+</li>
+<li class="level1"><div class="li"> Now all you need to do is connect the TB100 to the Con485 using two wires. On the screw pins of the TB100 you will find TX+/- and RX+/-. Since SW1 and SW2 is on, we only need to connect one of these pairs. Connect RX+/-, for example. These are pins 6 and 7.</div>
+</li>
+<li class="level1"><div class="li"> So, take two wires and connect this RS485+ and RS485- of the Con485. <strong>Plus goes to plus, minus goes to minus.</strong></div>
+</li>
+<li class="level1"><div class="li"> That&#039;s it for the 485 connections. Simple!</div>
+</li>
+<li class="level1"><div class="li"> The next step is to connect the Con485 to the RS232 port of the computer, to see if it works. This sounds trivial, but you should <strong>really</strong> pay attention to the RX/TX pin assignment on the Con485, because on this specific device it can be a bit confusing. Read the manual carefully! Make sure you connect the TX of the Con485 to the RX of the computer, and the RX to the TX. </div>
+</li>
+<li class="level1"><div class="li"> You should now be able to run HyperTerminal and see it work.</div>
+</li>
+</ol>
+
+</div>
+
+<h1><a name="notes" id="notes">Notes</a></h1>
+<div class="level1">
+
+</div>
+
+<h2><a name="this_works_for_short_distances_but_doesn_t_work_for_over_10_meters_help" id="this_works_for_short_distances_but_doesn_t_work_for_over_10_meters_help">This works for short distances, but doesn&#039;t work for over 10 meters. Help!</a></h2>
+<div class="level2">
+
+<p>
+This is because the line is not terminated in this example. Rs485 lines should be properly terminated. On the TB100, just turn ON switch 5 or 6 (but not both!). Now you have to make sure the other end of the line is proerly terminated.
+</p>
+
+</div>
+
+<h2><a name="what_if_i_don_t_have_a_tb100" id="what_if_i_don_t_have_a_tb100">What if I don&#039;t have a TB100?</a></h2>
+<div class="level2">
+
+<p>
+Then buy one!
+</p>
+
+<p>
+Seriously – it will make your life much easier when creating such setups. It&#039;s not an expensive connector.
+</p>
+
+<p>
+If for some reason you really can&#039;t buy one, then use a female DB9 connector and solder the lines – RX- to TX- and RX+ to TX+ according to the DS100B pinout <a href="javascript:if(confirm('http://docs.tibbo.com/soism/ds100_ser.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://docs.tibbo.com/soism/ds100_ser.htm'" tppabs="http://docs.tibbo.com/soism/ds100_ser.htm" class="urlextern" title="http://docs.tibbo.com/soism/ds100_ser.htm"  rel="nofollow">here</a>. But then you&#039;ll have a problem with termination for longer-distance lines – you will have to solder in the termination components yourself. We really advise working with a TB100.
+</p>
+
+</div>
+
+<h2><a name="errata" id="errata">Errata</a></h2>
+<div class="level2">
+
+<p>
+We wish to thank our partner <a href="javascript:if(confirm('http://www.idp.co.il/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.idp.co.il/'" tppabs="http://www.idp.co.il/" class="urlextern" title="http://www.idp.co.il"  rel="nofollow">IDP</a> for finding and helping correct technical errors above.
+
+</p>
+
+</div>
+
+    <!-- wikipage stop -->
+  </div>
+
+
+
+</div>
+<!-- real main body/ -->
+</div>
+				<br/>
+				<p style="color:#828282;margin-left:15px;font-size:12px">&copy; Tibbo Technology Inc. 2001-2009&nbsp;&nbsp;
+
+<a href="javascript:if(confirm('http://old.tibbo.com/corporate/contacts.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://old.tibbo.com/corporate/contacts.html'" tppabs="http://old.tibbo.com/corporate/contacts.html">Contact Us</a>&nbsp;|&nbsp;<a href="javascript:if(confirm('http://old.tibbo.com/account.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://old.tibbo.com/account.html'" tppabs="http://old.tibbo.com/account.html">Account</a>				</p>
+			</td>
+		</tr>
+	</table>
+
+
+
+  
+  
+
+  <div class="clearer">&nbsp;</div>
+
+  
+
+
+<div class="no"><img src="../../lib/exe/indexer.php-id=general-hardware-con485&1457462902.gif" tppabs="http://old.tibbo.com/kb/lib/exe/indexer.php?id=general%3Ahardware%3Acon485&1457462902" width="1" height="1" alt=""  /></div>
+
+
+</body>
+</html>

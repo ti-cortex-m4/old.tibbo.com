@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+ lang="en" dir="ltr">
+<head>
+  <link rel="stylesheet" href="../../../../m0.tibbo.net/modules/min/g=css_tm&30.css" tppabs="http://m0.tibbo.net/modules/min/g=css_tm&30" type="text/css" />
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>
+    How to Configure Firewall Software to Allow DS Manger and DS Explorer to Work    [DokuWiki]
+  </title>
+
+  <meta name="generator" content="DokuWiki Release 2009-12-25c &quot;Lemming&quot;" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2008-09-25T10:38:58+0400" />
+<meta name="keywords" content="general,networking,dealwith_firewall" />
+<link rel="search" type="application/opensearchdescription+xml" href="/kb/lib/exe/opensearch.php" title="DokuWiki" />
+<link rel="start" href="/kb/" />
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="/kb/feed.php" />
+<link rel="alternate" type="application/rss+xml" title="Current Namespace" href="/kb/feed.php?mode=list&amp;ns=general:networking" />
+<link rel="alternate" type="text/html" title="Plain HTML" href="/kb/_export/xhtml/general/networking/dealwith_firewall" />
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="/kb/_export/raw/general/networking/dealwith_firewall" />
+<link rel="canonical" href="http://old.tibbo.com/kb/general/networking/dealwith_firewall" />
+<link rel="stylesheet" media="all" type="text/css" href="../../lib/exe/css.php-s=all&t=new2&tseed=1273149525.css" tppabs="http://old.tibbo.com/kb/lib/exe/css.php?s=all&t=new2&tseed=1273149525" />
+<link rel="stylesheet" media="screen" type="text/css" href="../../lib/exe/css.php-t=new2&tseed=1273149525.css" tppabs="http://old.tibbo.com/kb/lib/exe/css.php?t=new2&tseed=1273149525" />
+<link rel="stylesheet" media="print" type="text/css" href="../../lib/exe/css.php-s=print&t=new2&tseed=1273149525.css" tppabs="http://old.tibbo.com/kb/lib/exe/css.php?s=print&t=new2&tseed=1273149525" />
+<script type="text/javascript" charset="utf-8" ><!--//--><![CDATA[//><!--
+var NS='general:networking';var JSINFO = {"id":"general:networking:dealwith_firewall","namespace":"general:networking"};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php-tseed=1273149525" tppabs="http://old.tibbo.com/kb/lib/exe/js.php?tseed=1273149525" ></script>
+
+  <link rel="shortcut icon" href="/kb/lib/tpl/new2/images/favicon.ico" />
+
+  	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9366256-1']);
+  _gaq.push(['_setDomainName', 'http://old.tibbo.com/kb/general/networking/.tibbo.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body style="margin: 0pt; padding: 17px; background-color: rgb(238, 238, 238); background-image: url(/images/bg.gif); background-repeat: repeat-x;" onload="preload();">
+
+<div id="navbar">
+
+<div class="header">
+ <div class="logo">
+<a href="javascript:if(confirm('http://tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/'" tppabs="http://tibbo.com/"><img src="../../../../i1.tibbo.net/images/logo.png" tppabs="http://i1.tibbo.net/images/logo.png" alt="Serial to Ethernet, Device Servers, Remote Monitoring, Device Management" width="100" height="44" border="0"/></a>
+ </div>
+ <div class="menu_wrapper en">
+<!-- topmenu -->
+<div class="topmenu">
+<div class="menuitems"><ul><li><a href="javascript:if(confirm('http://tibbo.com/products/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/products/'" tppabs="http://tibbo.com/products/">Products</a></li><li><a href="javascript:if(confirm('http://tibbo.com/downloads.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/downloads.html'" tppabs="http://tibbo.com/downloads.html">Downloads</a></li><li><a href="javascript:if(confirm('http://tibbo.com/buy/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/buy/'" tppabs="http://tibbo.com/buy/">Buy</a></li>
+<li>Docs &amp; Support</li><li><a href="javascript:if(confirm('http://tibbo.com/corporate/about  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/corporate/about'" tppabs="http://tibbo.com/corporate/about">Corporate</a></li><li><a href="javascript:if(confirm('http://blog.tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://blog.tibbo.com/'" tppabs="http://blog.tibbo.com/">News</a></li></ul></div>  <div class="search">
+		<form action="http://tibbo.com/search.html" method="get">
+			<input name="q" type="text" value="Search..." onblur="if(this.value=='') this.value='Search...';" onfocus="if(this.value=='Search...') this.value='';"/>
+		</form>
+	</div>
+</div>
+<div class="topmenu">
+<div class="menuitems"><ul><li><a href="javascript:if(confirm('http://tibbo.com/soi/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/soi/'" tppabs="http://tibbo.com/soi/">Serial-over-IP</a></li><li><a href="javascript:if(confirm('http://tibbo.com/basic/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/basic/'" tppabs="http://tibbo.com/basic/">Programmable</a></li><li><a href="javascript:if(confirm('http://aggregate.tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://aggregate.tibbo.com/'" tppabs="http://aggregate.tibbo.com/">Device Management</a></li><li><a href="javascript:if(confirm('http://tibbo.com/ninja/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/ninja/'" tppabs="http://tibbo.com/ninja/">Terminal/Sniffer</a></li><li><a href="javascript:if(confirm('http://tibbo.com/oem/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/oem/'" tppabs="http://tibbo.com/oem/">OEM/ODM</a></li></ul></div>
+
+</div>
+<!-- topmenu / -->
+</div>
+
+
+</div>
+
+	</div>
+
+	<table style="margin-top: 13px;" align="center" border="0" cellpadding="0" cellspacing="0" width="950px">
+
+		<tbody><tr>
+			<td style="background-image: url(/images/tstuff/support-bg.gif);"><a href="javascript:if(confirm('http://tibbo.com/support.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support.html'" tppabs="http://tibbo.com/support.html"><img src="../../../images/tstuff/support-logo.gif" tppabs="http://old.tibbo.com/images/tstuff/support-logo.gif" alt="" border="0" height="94" width="464"/></a><br/></td>
+			<td style="background-image: url(/images/tstuff/support-bg.gif);" align="right"><img src="../../../images/tstuff/support-img.jpg" tppabs="http://old.tibbo.com/images/tstuff/support-img.jpg" alt="" border="0" height="94" width="470"/><br/></td>
+		</tr>
+	</tbody></table>
+
+
+
+
+
+
+<table cellspacing="0" cellpadding="0" border="0" width="950px" align="center">
+		<tr valign="top">
+			<td width="214px">
+
+
+
+
+
+
+
+<div class='new_leftmenu'>
+<ul>
+<li><a href="javascript:if(confirm('http://tibbo.com/support.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support.html'" tppabs="http://tibbo.com/support.html">Support Home</a></li>
+<li><a href="javascript:if(confirm('http://tibbo.com/kb/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/kb/'" tppabs="http://tibbo.com/kb/" style='color:Gray;'>Knowledge Base</a></li>
+<li><a href="javascript:if(confirm('http://docs.tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://docs.tibbo.com/'" tppabs="http://docs.tibbo.com/">Documentation</a></li>
+<li><a href="javascript:if(confirm('http://tibbo.com/support/contact  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support/contact'" tppabs="http://tibbo.com/support/contact">Contact Support</a></li>
+<li><a href="javascript:if(confirm('http://getsatisfaction.com/tibbo  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://getsatisfaction.com/tibbo'" tppabs="http://getsatisfaction.com/tibbo">Unofficial Forum</a></li>
+</ul>
+</div>
+</td>
+
+<!-- t / -->
+
+			<td><img src="../../../images/spacer.gif" tppabs="http://old.tibbo.com/images/spacer.gif" alt="" width="12" height="12px" border="0"/></td>
+			<td width="724px"><!-- t -->
+
+<div class="new_main_frame" style="margin-top:12px">
+<!-- real main body -->
+<!--
+ee
+{MYVAR}
+xxx
+-->
+<div class="dokuwiki">
+  <div class="stylehead">
+
+      <div class="clearer"></div>
+    </div>
+
+
+
+
+
+    
+  <div class="page">
+    <!-- wikipage start -->
+
+
+
+<h1><a name="how_to_configure_firewall_software_to_allow_ds_manger_and_ds_explorer_to_work" id="how_to_configure_firewall_software_to_allow_ds_manger_and_ds_explorer_to_work">How to Configure Firewall Software to Allow DS Manger and DS Explorer to Work</a></h1>
+<div class="level1">
+
+<p>
+
+<strong>Question:</strong> I am using a firewall software on the computer that I am running your DS Manager / DS Explorer, there are some device servers that do not show up when the firewall software is running, how do I fix that?
+</p>
+
+<p>
+<strong>Answer:</strong>  Firewall software usually have various levels of configuration on a program-to-program basis.  The DS Manager and DS Explorer require the configuration of different service&#039;s setting under the firewall software.  The DS Manager relies on the rundll32.exe to communicate with the device servers and the DS Explorer relies on wscript.exe to communicate with the device servers. 
+</p>
+
+<p>
+Here, We will use Kaspersky Lab&#039;s Internet Security for our examples.  
+</p>
+
+</div>
+
+<h1><a name="the_easy_way" id="the_easy_way">The Easy Way</a></h1>
+<div class="level1">
+
+<p>
+The easy way to configure the firewall is to make use of its pop-up prompts.  What you need to do is to start up DS Manager or DS Explorer and the firewall software should prompt you for program access permissions.
+</p>
+
+<p>
+Left images shows UDP access request for rundll32.exe and the right image shows the UDP access request for wscript.exe.
+</p>
+
+<p>
+<a href="../../_detail/kav_pop1.jpg-id=general-networking-dealwith_firewall.htm" tppabs="http://old.tibbo.com/kb/_detail/kav_pop1.jpg?id=general%3Anetworking%3Adealwith_firewall" class="media" title="kav_pop1.jpg"><img src="../../_media/kav_pop1.jpg" tppabs="http://old.tibbo.com/kb/_media/kav_pop1.jpg" class="media" title="kav_pop1.jpg" alt="kav_pop1.jpg" /></a> <a href="../../_detail/kav_pop3.jpg-id=general-networking-dealwith_firewall.htm" tppabs="http://old.tibbo.com/kb/_detail/kav_pop3.jpg?id=general%3Anetworking%3Adealwith_firewall" class="media" title="kav_pop3.jpg"><img src="../../_media/kav_pop3.jpg" tppabs="http://old.tibbo.com/kb/_media/kav_pop3.jpg" class="media" title="kav_pop3.jpg" alt="kav_pop3.jpg" /></a>
+</p>
+
+<p>
+To allow for complete showing of all device servers on the network, under “Action” section please choose “Any activity” and then “Allow”.  The reason that we do not just open the UDP access for specific devices is that there will be situations where the firewall software will per-determin that it is hostile/illegal and auto-block the requests without any prompt.  This results in some device server will never be found by the DS Manager  / DS Explorer.
+</p>
+
+</div>
+
+<h1><a name="the_full_control_way" id="the_full_control_way">The Full Control Way</a></h1>
+<div class="level1">
+
+<p>
+
+Now that was the easy way to do it, but if you prefer to manually adjust the setting, then continue reading.  First Open the Kaspersky Internet Security program and navigate to the “Anti-Hacker” functions.  Click on the space within the “Status” section.
+</p>
+
+<p>
+<a href="../../_detail/kav_01.jpg-id=general-networking-dealwith_firewall.htm" tppabs="http://old.tibbo.com/kb/_detail/kav_01.jpg?id=general%3Anetworking%3Adealwith_firewall" class="media" title="kav_01.jpg"><img src="../../_media/kav_01.jpg" tppabs="http://old.tibbo.com/kb/_media/kav_01.jpg" class="media" title="kav_01.jpg" alt="kav_01.jpg" /></a>
+</p>
+
+<p>
+Under “Enable Firewall” click on the “Settings…” button.
+</p>
+
+<p>
+<a href="../../_detail/kav_02.jpg-id=general-networking-dealwith_firewall.htm" tppabs="http://old.tibbo.com/kb/_detail/kav_02.jpg?id=general%3Anetworking%3Adealwith_firewall" class="media" title="kav_02.jpg"><img src="../../_media/kav_02.jpg" tppabs="http://old.tibbo.com/kb/_media/kav_02.jpg" class="media" title="kav_02.jpg" alt="kav_02.jpg" /></a>
+</p>
+
+<p>
+Under “Rules for applications” you will see a long list of applications that currently have rules applied upon.  Look for rundll32.exe and wscript.exe in the list.
+</p>
+
+<p>
+<a href="../../_detail/kav_08.jpg-id=general-networking-dealwith_firewall.htm" tppabs="http://old.tibbo.com/kb/_detail/kav_08.jpg?id=general%3Anetworking%3Adealwith_firewall" class="media" title="kav_08.jpg"><img src="../../_media/kav_08.jpg" tppabs="http://old.tibbo.com/kb/_media/kav_08.jpg" class="media" title="kav_08.jpg" alt="kav_08.jpg" /></a> <a href="../../_detail/kav_03.jpg-id=general-networking-dealwith_firewall.htm" tppabs="http://old.tibbo.com/kb/_detail/kav_03.jpg?id=general%3Anetworking%3Adealwith_firewall" class="media" title="kav_03.jpg"><img src="../../_media/kav_03.jpg" tppabs="http://old.tibbo.com/kb/_media/kav_03.jpg" class="media" title="kav_03.jpg" alt="kav_03.jpg" /></a>
+</p>
+
+<p>
+If you do not see either of it inside the list, click on the “Add…” button and manually add them.  Check to see if the applications are already in the list, if not then choose “Browse…” to manually point to the application.  Those 2 files should reside under the Windows\System32\ directory.
+</p>
+
+<p>
+<a href="../../_detail/kav_10.jpg-id=general-networking-dealwith_firewall.htm" tppabs="http://old.tibbo.com/kb/_detail/kav_10.jpg?id=general%3Anetworking%3Adealwith_firewall" class="media" title="kav_10.jpg"><img src="../../_media/kav_10.jpg" tppabs="http://old.tibbo.com/kb/_media/kav_10.jpg" class="media" title="kav_10.jpg" alt="kav_10.jpg" /></a>
+</p>
+
+<p>
+Select the appropriate application and Add a new rule by pressing the “Add…” button.
+</p>
+
+<p>
+<a href="../../_detail/kav_04.jpg-id=general-networking-dealwith_firewall.htm" tppabs="http://old.tibbo.com/kb/_detail/kav_04.jpg?id=general%3Anetworking%3Adealwith_firewall" class="media" title="kav_04.jpg"><img src="../../_media/kav_04.jpg" tppabs="http://old.tibbo.com/kb/_media/kav_04.jpg" class="media" title="kav_04.jpg" alt="kav_04.jpg" /></a>
+</p>
+
+<p>
+Type in any text you want for the “Rule name” and make sure the “Rule Description” is the same as in the image below:
+</p>
+
+<p>
+<a href="../../_detail/kav_07.jpg-id=general-networking-dealwith_firewall.htm" tppabs="http://old.tibbo.com/kb/_detail/kav_07.jpg?id=general%3Anetworking%3Adealwith_firewall" class="media" title="kav_07.jpg"><img src="../../_media/kav_07.jpg" tppabs="http://old.tibbo.com/kb/_media/kav_07.jpg" class="media" title="kav_07.jpg" alt="kav_07.jpg" /></a>
+</p>
+
+<p>
+Click OK and then OK two more times to apply the new rule and your DS Manager and DS Explorer should work flawlessly now.
+</p>
+
+</div>
+
+<h1><a name="additional_notes" id="additional_notes">Additional Notes</a></h1>
+<div class="level1">
+
+<p>
+
+Please note, TCP connection does not affect DS Manager and DS Explorer, to ensure better security the “Allow Any TCP Activity” should be deleted if there are no other programs that relies on full access of the TCP protocol.
+</p>
+
+<p>
+<a href="../../_detail/kav_04.jpg-id=general-networking-dealwith_firewall.htm" tppabs="http://old.tibbo.com/kb/_detail/kav_04.jpg?id=general%3Anetworking%3Adealwith_firewall" class="media" title="kav_04.jpg"><img src="../../_media/kav_04.jpg" tppabs="http://old.tibbo.com/kb/_media/kav_04.jpg" class="media" title="kav_04.jpg" alt="kav_04.jpg" /></a>
+
+</p>
+
+</div>
+
+    <!-- wikipage stop -->
+  </div>
+
+
+
+</div>
+<!-- real main body/ -->
+</div>
+				<br/>
+				<p style="color:#828282;margin-left:15px;font-size:12px">&copy; Tibbo Technology Inc. 2001-2009&nbsp;&nbsp;
+
+<a href="javascript:if(confirm('http://old.tibbo.com/corporate/contacts.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://old.tibbo.com/corporate/contacts.html'" tppabs="http://old.tibbo.com/corporate/contacts.html">Contact Us</a>&nbsp;|&nbsp;<a href="javascript:if(confirm('http://old.tibbo.com/account.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://old.tibbo.com/account.html'" tppabs="http://old.tibbo.com/account.html">Account</a>				</p>
+			</td>
+		</tr>
+	</table>
+
+
+
+  
+  
+
+  <div class="clearer">&nbsp;</div>
+
+  
+
+
+<div class="no"><img src="../../lib/exe/indexer.php-id=general-networking-dealwith_firewall&1457462921.gif" tppabs="http://old.tibbo.com/kb/lib/exe/indexer.php?id=general%3Anetworking%3Adealwith_firewall&1457462921" width="1" height="1" alt=""  /></div>
+
+
+</body>
+</html>

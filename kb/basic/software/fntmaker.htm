@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+ lang="en" dir="ltr">
+<head>
+  <link rel="stylesheet" href="../../../../m0.tibbo.net/modules/min/g=css_tm&30.css" tppabs="http://m0.tibbo.net/modules/min/g=css_tm&30" type="text/css" />
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>
+    LCD Font Maker    [DokuWiki]
+  </title>
+
+  <meta name="generator" content="DokuWiki Release 2009-12-25c &quot;Lemming&quot;" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2009-12-22T13:17:29+0300" />
+<meta name="keywords" content="basic,software,fntmaker" />
+<link rel="search" type="application/opensearchdescription+xml" href="/kb/lib/exe/opensearch.php" title="DokuWiki" />
+<link rel="start" href="/kb/" />
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="/kb/feed.php" />
+<link rel="alternate" type="application/rss+xml" title="Current Namespace" href="/kb/feed.php?mode=list&amp;ns=basic:software" />
+<link rel="alternate" type="text/html" title="Plain HTML" href="/kb/_export/xhtml/basic/software/fntmaker" />
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="/kb/_export/raw/basic/software/fntmaker" />
+<link rel="canonical" href="http://old.tibbo.com/kb/basic/software/fntmaker" />
+<link rel="stylesheet" media="all" type="text/css" href="../../lib/exe/css.php-s=all&t=new2&tseed=1273149525.css" tppabs="http://old.tibbo.com/kb/lib/exe/css.php?s=all&t=new2&tseed=1273149525" />
+<link rel="stylesheet" media="screen" type="text/css" href="../../lib/exe/css.php-t=new2&tseed=1273149525.css" tppabs="http://old.tibbo.com/kb/lib/exe/css.php?t=new2&tseed=1273149525" />
+<link rel="stylesheet" media="print" type="text/css" href="../../lib/exe/css.php-s=print&t=new2&tseed=1273149525.css" tppabs="http://old.tibbo.com/kb/lib/exe/css.php?s=print&t=new2&tseed=1273149525" />
+<script type="text/javascript" charset="utf-8" ><!--//--><![CDATA[//><!--
+var NS='basic:software';var JSINFO = {"id":"basic:software:fntmaker","namespace":"basic:software"};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php-tseed=1273149525" tppabs="http://old.tibbo.com/kb/lib/exe/js.php?tseed=1273149525" ></script>
+
+  <link rel="shortcut icon" href="/kb/lib/tpl/new2/images/favicon.ico" />
+
+  	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9366256-1']);
+  _gaq.push(['_setDomainName', 'http://old.tibbo.com/kb/basic/software/.tibbo.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body style="margin: 0pt; padding: 17px; background-color: rgb(238, 238, 238); background-image: url(/images/bg.gif); background-repeat: repeat-x;" onload="preload();">
+
+<div id="navbar">
+
+<div class="header">
+ <div class="logo">
+<a href="javascript:if(confirm('http://tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/'" tppabs="http://tibbo.com/"><img src="../../../../i1.tibbo.net/images/logo.png" tppabs="http://i1.tibbo.net/images/logo.png" alt="Serial to Ethernet, Device Servers, Remote Monitoring, Device Management" width="100" height="44" border="0"/></a>
+ </div>
+ <div class="menu_wrapper en">
+<!-- topmenu -->
+<div class="topmenu">
+<div class="menuitems"><ul><li><a href="javascript:if(confirm('http://tibbo.com/products/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/products/'" tppabs="http://tibbo.com/products/">Products</a></li><li><a href="javascript:if(confirm('http://tibbo.com/downloads.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/downloads.html'" tppabs="http://tibbo.com/downloads.html">Downloads</a></li><li><a href="javascript:if(confirm('http://tibbo.com/buy/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/buy/'" tppabs="http://tibbo.com/buy/">Buy</a></li>
+<li>Docs &amp; Support</li><li><a href="javascript:if(confirm('http://tibbo.com/corporate/about  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/corporate/about'" tppabs="http://tibbo.com/corporate/about">Corporate</a></li><li><a href="javascript:if(confirm('http://blog.tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://blog.tibbo.com/'" tppabs="http://blog.tibbo.com/">News</a></li></ul></div>  <div class="search">
+		<form action="http://tibbo.com/search.html" method="get">
+			<input name="q" type="text" value="Search..." onblur="if(this.value=='') this.value='Search...';" onfocus="if(this.value=='Search...') this.value='';"/>
+		</form>
+	</div>
+</div>
+<div class="topmenu">
+<div class="menuitems"><ul><li><a href="javascript:if(confirm('http://tibbo.com/soi/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/soi/'" tppabs="http://tibbo.com/soi/">Serial-over-IP</a></li><li><a href="javascript:if(confirm('http://tibbo.com/basic/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/basic/'" tppabs="http://tibbo.com/basic/">Programmable</a></li><li><a href="javascript:if(confirm('http://aggregate.tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://aggregate.tibbo.com/'" tppabs="http://aggregate.tibbo.com/">Device Management</a></li><li><a href="javascript:if(confirm('http://tibbo.com/ninja/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/ninja/'" tppabs="http://tibbo.com/ninja/">Terminal/Sniffer</a></li><li><a href="javascript:if(confirm('http://tibbo.com/oem/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/oem/'" tppabs="http://tibbo.com/oem/">OEM/ODM</a></li></ul></div>
+
+</div>
+<!-- topmenu / -->
+</div>
+
+
+</div>
+
+	</div>
+
+	<table style="margin-top: 13px;" align="center" border="0" cellpadding="0" cellspacing="0" width="950px">
+
+		<tbody><tr>
+			<td style="background-image: url(/images/tstuff/support-bg.gif);"><a href="javascript:if(confirm('http://tibbo.com/support.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support.html'" tppabs="http://tibbo.com/support.html"><img src="../../../images/tstuff/support-logo.gif" tppabs="http://old.tibbo.com/images/tstuff/support-logo.gif" alt="" border="0" height="94" width="464"/></a><br/></td>
+			<td style="background-image: url(/images/tstuff/support-bg.gif);" align="right"><img src="../../../images/tstuff/support-img.jpg" tppabs="http://old.tibbo.com/images/tstuff/support-img.jpg" alt="" border="0" height="94" width="470"/><br/></td>
+		</tr>
+	</tbody></table>
+
+
+
+
+
+
+<table cellspacing="0" cellpadding="0" border="0" width="950px" align="center">
+		<tr valign="top">
+			<td width="214px">
+
+
+
+
+
+
+
+<div class='new_leftmenu'>
+<ul>
+<li><a href="javascript:if(confirm('http://tibbo.com/support.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support.html'" tppabs="http://tibbo.com/support.html">Support Home</a></li>
+<li><a href="javascript:if(confirm('http://tibbo.com/kb/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/kb/'" tppabs="http://tibbo.com/kb/" style='color:Gray;'>Knowledge Base</a></li>
+<li><a href="javascript:if(confirm('http://docs.tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://docs.tibbo.com/'" tppabs="http://docs.tibbo.com/">Documentation</a></li>
+<li><a href="javascript:if(confirm('http://tibbo.com/support/contact  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support/contact'" tppabs="http://tibbo.com/support/contact">Contact Support</a></li>
+<li><a href="javascript:if(confirm('http://getsatisfaction.com/tibbo  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://getsatisfaction.com/tibbo'" tppabs="http://getsatisfaction.com/tibbo">Unofficial Forum</a></li>
+</ul>
+</div>
+</td>
+
+<!-- t / -->
+
+			<td><img src="../../../images/spacer.gif" tppabs="http://old.tibbo.com/images/spacer.gif" alt="" width="12" height="12px" border="0"/></td>
+			<td width="724px"><!-- t -->
+
+<div class="new_main_frame" style="margin-top:12px">
+<!-- real main body -->
+<!--
+ee
+{MYVAR}
+xxx
+-->
+<div class="dokuwiki">
+  <div class="stylehead">
+
+      <div class="clearer"></div>
+    </div>
+
+
+
+
+
+    
+  <div class="page">
+    <!-- wikipage start -->
+
+
+
+<h1><a name="lcd_font_maker" id="lcd_font_maker">LCD Font Maker</a></h1>
+<div class="level1">
+
+<p>
+
+<strong>FntMaker</strong> is a handy little tool we created to convert fonts from Raster Font Editor to our own format, which can be used on Tibbo BASIC devices with the LCD object.
+</p>
+
+<p>
+You can download FntMaker for free in our <a href="javascript:if(confirm('http://tibbo.com/downloads/basic/software.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/downloads/basic/software.html'" tppabs="http://tibbo.com/downloads/basic/software.html" class="urlextern" title="http://tibbo.com/downloads/basic/software.html"  rel="nofollow">Programmable Software</a> section.
+</p>
+
+</div>
+
+<h2><a name="usage" id="usage">Usage</a></h2>
+<div class="level2">
+<pre class="code">fntmaker filename [cut] [cut] [cut] [cut] [spacewidth] [options]</pre>
+
+<p>
+
+<strong>filename</strong> should be without extension. <strong>filename.txt</strong> will be used for input. <strong>filename.bin</strong> will be used for output.
+</p>
+
+<p>
+<strong>[cut]</strong> can be used up to 4 times. It defines the number of pixel rows/columns that will be removed from the imported bitmaps:
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Use <strong>CTx</strong> to cut x bitmap rows from the top of the bitmap;</div>
+</li>
+<li class="level1"><div class="li"> Use <strong>CBx</strong> to cut x bitmap rows from the bottom of the bitmap;</div>
+</li>
+<li class="level1"><div class="li"> Use <strong>CLx</strong> to cut x bitmap rows from the left of the bitmap;</div>
+</li>
+<li class="level1"><div class="li"> Use <strong>CRx</strong> to cut x bitmap rows from the right of the bitmap;</div>
+</li>
+</ul>
+
+<p>
+
+<strong>Note:</strong> for proportional fonts, cutting is done before eliminating unsued pixel columns from bitmaps.
+</p>
+
+<p>
+<strong>[spacewidth]</strong> is used for proportional fonts *only*, and defines the width of the space character (code 20h). Format is <strong>SWx</strong>, where <strong>x</strong> is the width of the space character. This option does nothing for non-proportional fonts because they preserve original bitmap widths.
+</p>
+
+<p>
+<strong>[options]</strong>:
+
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>H</strong> for horizontally packed, non-proportional font;</div>
+</li>
+<li class="level1"><div class="li"> <strong>HP</strong> for horizontally packed, proportional font;</div>
+</li>
+<li class="level1"><div class="li"> <strong>V</strong> for vertically packed, non-proportional font;</div>
+</li>
+<li class="level1"><div class="li"> <strong>VP</strong> for vertically packed, proportional font;</div>
+</li>
+</ul>
+
+</div>
+
+<h3><a name="defaults" id="defaults">Defaults</a></h3>
+<div class="level3">
+
+<p>
+
+Default values are no cutting, vertical, non-proportional, original space width.
+</p>
+
+</div>
+
+<h3><a name="example" id="example">Example</a></h3>
+<div class="level3">
+<pre class="code">FNTMAKER 15X21 CT1 HP SW15</pre>
+
+<p>
+
+This well convert 15&times;21.TXT to 15&times;21.bin. One row will be cut off the top of imported bitmaps. The output will be a horizontally packed, proportional font, and the width of the space character will be 15 pixels.
+</p>
+
+</div>
+
+<h3><a name="input_file_format" id="input_file_format">Input File Format</a></h3>
+<div class="level3">
+
+<p>
+Your input .TXT file must consist of blocks, one blcok for each character. Each block starts with one descriptor line defining character code and height. Here is an example:
+
+</p>
+<pre class="code"># Character 0x23 x21</pre>
+
+<p>
+
+<strong>23</strong> is the hex code of the character.
+</p>
+
+<p>
+<strong>21</strong> is its decimal height in pixels.
+</p>
+
+<p>
+The line must start with <strong># Character 0x</strong> exactly – no extra spaces or changes. Lines that do not start as shown are ignored.
+</p>
+
+<p>
+FntMaker looks for <strong>0x</strong> and assumes the number behind it is the hex code of the character.
+</p>
+
+<p>
+It then searches for the next &#039;x&#039; and assumes the number behind it is the decimal height of the character.
+</p>
+
+<p>
+A matching number of bitmap lines must follow the above. Here is an example:
+
+</p>
+<pre class="code"># Character 0x30 48 8x8 pixels
+.@@@@@@.
+@.....@@
+@....@.@
+@...@..@
+@..@...@
+@.@....@
+@@.....@
+.@@@@@@.</pre>
+
+<p>
+
+The descriptor line above has more data, but FntMaker will only pick what it needs. There must be no other text lines between the character descriptor and bitmap lines.
+</p>
+
+<p>
+Declared character height must match actual numbers of bitmap lines that follow.
+</p>
+
+<p>
+ALL characters in the file must have the same height.
+</p>
+
+<p>
+ALL bitmap lines of one character must have the same width.
+</p>
+
+<p>
+Different characters may have different widths.
+</p>
+
+<p>
+In bitmap lines, &#039;dots&#039; or SPACES represent pixels that are OFF, all other characters represent pixels that are ON.
+</p>
+
+</div>
+
+    <!-- wikipage stop -->
+  </div>
+
+
+
+</div>
+<!-- real main body/ -->
+</div>
+				<br/>
+				<p style="color:#828282;margin-left:15px;font-size:12px">&copy; Tibbo Technology Inc. 2001-2009&nbsp;&nbsp;
+
+<a href="javascript:if(confirm('http://old.tibbo.com/corporate/contacts.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://old.tibbo.com/corporate/contacts.html'" tppabs="http://old.tibbo.com/corporate/contacts.html">Contact Us</a>&nbsp;|&nbsp;<a href="javascript:if(confirm('http://old.tibbo.com/account.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://old.tibbo.com/account.html'" tppabs="http://old.tibbo.com/account.html">Account</a>				</p>
+			</td>
+		</tr>
+	</table>
+
+
+
+  
+  
+
+  <div class="clearer">&nbsp;</div>
+
+  
+
+
+<div class="no"><img src="../../lib/exe/indexer.php-id=basic-software-fntmaker&1457462900.gif" tppabs="http://old.tibbo.com/kb/lib/exe/indexer.php?id=basic%3Asoftware%3Afntmaker&1457462900" width="1" height="1" alt=""  /></div>
+
+
+</body>
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+ lang="en" dir="ltr">
+<head>
+  <link rel="stylesheet" href="../../../../m0.tibbo.net/modules/min/g=css_tm&30.css" tppabs="http://m0.tibbo.net/modules/min/g=css_tm&30" type="text/css" />
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>
+    So My Module / Device Server is Not Functioning Correctly, Is It Broken?    [DokuWiki]
+  </title>
+
+  <meta name="generator" content="DokuWiki Release 2009-12-25c &quot;Lemming&quot;" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2010-02-22T15:47:24+0300" />
+<meta name="keywords" content="general,hardware,determining_point_of_failure" />
+<link rel="search" type="application/opensearchdescription+xml" href="/kb/lib/exe/opensearch.php" title="DokuWiki" />
+<link rel="start" href="/kb/" />
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="/kb/feed.php" />
+<link rel="alternate" type="application/rss+xml" title="Current Namespace" href="/kb/feed.php?mode=list&amp;ns=general:hardware" />
+<link rel="alternate" type="text/html" title="Plain HTML" href="/kb/_export/xhtml/general/hardware/determining_point_of_failure" />
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="/kb/_export/raw/general/hardware/determining_point_of_failure" />
+<link rel="canonical" href="http://old.tibbo.com/kb/general/hardware/determining_point_of_failure" />
+<link rel="stylesheet" media="all" type="text/css" href="../../lib/exe/css.php-s=all&t=new2&tseed=1273149525.css" tppabs="http://old.tibbo.com/kb/lib/exe/css.php?s=all&t=new2&tseed=1273149525" />
+<link rel="stylesheet" media="screen" type="text/css" href="../../lib/exe/css.php-t=new2&tseed=1273149525.css" tppabs="http://old.tibbo.com/kb/lib/exe/css.php?t=new2&tseed=1273149525" />
+<link rel="stylesheet" media="print" type="text/css" href="../../lib/exe/css.php-s=print&t=new2&tseed=1273149525.css" tppabs="http://old.tibbo.com/kb/lib/exe/css.php?s=print&t=new2&tseed=1273149525" />
+<script type="text/javascript" charset="utf-8" ><!--//--><![CDATA[//><!--
+var NS='general:hardware';var JSINFO = {"id":"general:hardware:determining_point_of_failure","namespace":"general:hardware"};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php-tseed=1273149525" tppabs="http://old.tibbo.com/kb/lib/exe/js.php?tseed=1273149525" ></script>
+
+  <link rel="shortcut icon" href="/kb/lib/tpl/new2/images/favicon.ico" />
+
+  	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9366256-1']);
+  _gaq.push(['_setDomainName', 'http://old.tibbo.com/kb/general/hardware/.tibbo.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body style="margin: 0pt; padding: 17px; background-color: rgb(238, 238, 238); background-image: url(/images/bg.gif); background-repeat: repeat-x;" onload="preload();">
+
+<div id="navbar">
+
+<div class="header">
+ <div class="logo">
+<a href="javascript:if(confirm('http://tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/'" tppabs="http://tibbo.com/"><img src="../../../../i1.tibbo.net/images/logo.png" tppabs="http://i1.tibbo.net/images/logo.png" alt="Serial to Ethernet, Device Servers, Remote Monitoring, Device Management" width="100" height="44" border="0"/></a>
+ </div>
+ <div class="menu_wrapper en">
+<!-- topmenu -->
+<div class="topmenu">
+<div class="menuitems"><ul><li><a href="javascript:if(confirm('http://tibbo.com/products/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/products/'" tppabs="http://tibbo.com/products/">Products</a></li><li><a href="javascript:if(confirm('http://tibbo.com/downloads.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/downloads.html'" tppabs="http://tibbo.com/downloads.html">Downloads</a></li><li><a href="javascript:if(confirm('http://tibbo.com/buy/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/buy/'" tppabs="http://tibbo.com/buy/">Buy</a></li>
+<li>Docs &amp; Support</li><li><a href="javascript:if(confirm('http://tibbo.com/corporate/about  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/corporate/about'" tppabs="http://tibbo.com/corporate/about">Corporate</a></li><li><a href="javascript:if(confirm('http://blog.tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://blog.tibbo.com/'" tppabs="http://blog.tibbo.com/">News</a></li></ul></div>  <div class="search">
+		<form action="http://tibbo.com/search.html" method="get">
+			<input name="q" type="text" value="Search..." onblur="if(this.value=='') this.value='Search...';" onfocus="if(this.value=='Search...') this.value='';"/>
+		</form>
+	</div>
+</div>
+<div class="topmenu">
+<div class="menuitems"><ul><li><a href="javascript:if(confirm('http://tibbo.com/soi/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/soi/'" tppabs="http://tibbo.com/soi/">Serial-over-IP</a></li><li><a href="javascript:if(confirm('http://tibbo.com/basic/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/basic/'" tppabs="http://tibbo.com/basic/">Programmable</a></li><li><a href="javascript:if(confirm('http://aggregate.tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://aggregate.tibbo.com/'" tppabs="http://aggregate.tibbo.com/">Device Management</a></li><li><a href="javascript:if(confirm('http://tibbo.com/ninja/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/ninja/'" tppabs="http://tibbo.com/ninja/">Terminal/Sniffer</a></li><li><a href="javascript:if(confirm('http://tibbo.com/oem/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/oem/'" tppabs="http://tibbo.com/oem/">OEM/ODM</a></li></ul></div>
+
+</div>
+<!-- topmenu / -->
+</div>
+
+
+</div>
+
+	</div>
+
+	<table style="margin-top: 13px;" align="center" border="0" cellpadding="0" cellspacing="0" width="950px">
+
+		<tbody><tr>
+			<td style="background-image: url(/images/tstuff/support-bg.gif);"><a href="javascript:if(confirm('http://tibbo.com/support.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support.html'" tppabs="http://tibbo.com/support.html"><img src="../../../images/tstuff/support-logo.gif" tppabs="http://old.tibbo.com/images/tstuff/support-logo.gif" alt="" border="0" height="94" width="464"/></a><br/></td>
+			<td style="background-image: url(/images/tstuff/support-bg.gif);" align="right"><img src="../../../images/tstuff/support-img.jpg" tppabs="http://old.tibbo.com/images/tstuff/support-img.jpg" alt="" border="0" height="94" width="470"/><br/></td>
+		</tr>
+	</tbody></table>
+
+
+
+
+
+
+<table cellspacing="0" cellpadding="0" border="0" width="950px" align="center">
+		<tr valign="top">
+			<td width="214px">
+
+
+
+
+
+
+
+<div class='new_leftmenu'>
+<ul>
+<li><a href="javascript:if(confirm('http://tibbo.com/support.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support.html'" tppabs="http://tibbo.com/support.html">Support Home</a></li>
+<li><a href="javascript:if(confirm('http://tibbo.com/kb/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/kb/'" tppabs="http://tibbo.com/kb/" style='color:Gray;'>Knowledge Base</a></li>
+<li><a href="javascript:if(confirm('http://docs.tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://docs.tibbo.com/'" tppabs="http://docs.tibbo.com/">Documentation</a></li>
+<li><a href="javascript:if(confirm('http://tibbo.com/support/contact  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support/contact'" tppabs="http://tibbo.com/support/contact">Contact Support</a></li>
+<li><a href="javascript:if(confirm('http://getsatisfaction.com/tibbo  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://getsatisfaction.com/tibbo'" tppabs="http://getsatisfaction.com/tibbo">Unofficial Forum</a></li>
+</ul>
+</div>
+</td>
+
+<!-- t / -->
+
+			<td><img src="../../../images/spacer.gif" tppabs="http://old.tibbo.com/images/spacer.gif" alt="" width="12" height="12px" border="0"/></td>
+			<td width="724px"><!-- t -->
+
+<div class="new_main_frame" style="margin-top:12px">
+<!-- real main body -->
+<!--
+ee
+{MYVAR}
+xxx
+-->
+<div class="dokuwiki">
+  <div class="stylehead">
+
+      <div class="clearer"></div>
+    </div>
+
+
+
+
+
+    
+  <div class="page">
+    <!-- wikipage start -->
+
+
+
+<h1><a name="so_my_module_device_server_is_not_functioning_correctly_is_it_broken" id="so_my_module_device_server_is_not_functioning_correctly_is_it_broken">So My Module / Device Server is Not Functioning Correctly, Is It Broken?</a></h1>
+<div class="level1">
+
+<p>
+
+<strong>Question:</strong> My module / device server has been acting weird, is it broken?
+</p>
+
+<p>
+<strong>Answer:</strong> Frequently, the problems encountered are not caused by hardware failure of the module itself, it could be caused by firmware and setting related reasons (incorrect settings, incorrect connections, or corrupt firmwares) or power related reasons.  Below are the suggested troubleshooting steps.
+</p>
+
+<p>
+<strong>Firmware and Setting Related Troubleshooting Steps</strong>
+
+</p>
+<ol>
+<li class="level1"><div class="li"> Back up your configuration files</div>
+</li>
+<li class="level1"><div class="li"> Update the software and firmware to the newest versions</div>
+</li>
+<li class="level1"><div class="li"> Initialize your Device Server / Module</div>
+</li>
+<li class="level1"><div class="li"> Reload the configuration files</div>
+</li>
+</ol>
+
+<p>
+
+<strong>Power Related Troubleshooting Steps</strong>
+
+</p>
+<ol>
+<li class="level1"><div class="li"> Check to see if the power supply is within specification</div>
+</li>
+</ol>
+
+</div>
+
+<h2><a name="firmware_and_setting_related_troubleshooting_steps" id="firmware_and_setting_related_troubleshooting_steps">Firmware and Setting Related Troubleshooting Steps</a></h2>
+<div class="level2">
+
+</div>
+
+<h3><a name="back_up_your_configuration_files" id="back_up_your_configuration_files">Back Up Your Configuration Files</a></h3>
+<div class="level3">
+
+<p>
+
+Just in case that your configuration of the device server is correct, and you are able to get the module / device server back to working state after following the steps outlined inside this document, then it is advised to make a back up of it before proceeding further.  The configuration of the module / device server can be saved using the DS Manager. 
+</p>
+
+<p>
+‧	First, open DS Manager and select the device that is having the trouble and press the “settings” button;  
+</p>
+
+<p>
+‧	Press the “save” button at the bottom of the menu and save the file to any name you wish (ex. mysettings.ds);
+</p>
+
+<p>
+<em>p.s.(This file is also useful when you need to contact us for technical support as this file can allow us to simulate your environment)</em>
+</p>
+
+</div>
+
+<h3><a name="update_the_software_and_firmware_to_the_newest_versions" id="update_the_software_and_firmware_to_the_newest_versions">Update the Software and Firmware to the Newest Versions</a></h3>
+<div class="level3">
+
+<p>
+
+With each new release of software and firmware there will be improvement either in features or in functionality.  So it is very possible the problem that you are encountering was already fixed.  The newest version of our software and firmware can be found at:
+</p>
+
+<p>
+<a href="javascript:if(confirm('http://www.tibbo.com/downloads.php  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.tibbo.com/downloads.php'" tppabs="http://www.tibbo.com/downloads.php" class="urlextern" title="http://www.tibbo.com/downloads.php"  rel="nofollow">http://www.tibbo.com/downloads.php</a>
+</p>
+
+</div>
+
+<h3><a name="initialize_your_device_server_module" id="initialize_your_device_server_module">Initialize Your Device Server / Module</a></h3>
+<div class="level3">
+
+<p>
+
+This step is to reset “everything” to the factory default settings except for the IP address of the module / device server.  Sometimes, data might become corrupted due to irregularities and this step resets the device server / module.  There are few ways to initialize your device server / module:
+</p>
+
+<p>
+<strong>If the device server is physically accessible and you do not have a PC that has our TDST installed, then you will need to do a “quick initialization” :</strong>
+</p>
+
+<p>
+‧	Make sure the DS is powered;
+</p>
+
+<p>
+
+‧	Press and release the Setup button* to enter the serial programming mode. Status LEDs will play the serial programming mode pattern;
+</p>
+
+<p>
+
+‧	Wait for at least three seconds;
+</p>
+
+<p>
+
+‧	Press and hold the Setup button for at least three seconds- both status LEDs will be switched off and this will indicate that the initialization has been started;
+</p>
+
+<p>
+
+‧	Initialization takes about one second to complete. Initialization result will be shown by the status LEDs- green LED will be switched on for about 2 seconds indicating successful initialization. (If the red LED is switched on this means that the DS is malfunctioning).
+</p>
+
+<p>
+
+‧	Switch the DS off and back on again to exit the error mode if necessary.
+</p>
+
+<p>
+<strong>If you do not have physical access to the device server / module or you have the TDST installed, then please use the DS Manager to perform the initialization:</strong>
+</p>
+
+<p>
+‧	Open the DS Manager and use either the “Auto-Discovery”, “Address Book”, or “Serial Access” modes as you have been using to connect to your device server / module;
+</p>
+
+<p>
+‧	Click the “Initialize” button and follow the instructions that appear on the screen.
+</p>
+
+</div>
+
+<h3><a name="reload_the_configuration_files" id="reload_the_configuration_files">Reload the Configuration Files</a></h3>
+<div class="level3">
+
+<p>
+
+Once all the above is done and if you want, you could reload the old configuration back to the device server / module.  Again, we use the trusty DS Manager.
+</p>
+
+<p>
+‧	Open DS Manager and select the device that you just updated and initialized and pres the “settings” button;
+</p>
+
+<p>
+‧	Press the “load” button at the bottom of the menu and navigate to the configuration file that you saved at the beginning of this whole process.
+</p>
+
+<p>
+‧	Please also reconfigure the IP address using the DS Manager since those setting may have been lost during the updates and initialization processes.
+</p>
+
+<p>
+With all these Steps Done, we should have gone through all possible Tibbo software and firmware related problems.  Of course, there might still be problems that are caused by other software or devices.  
+</p>
+
+</div>
+
+<h2><a name="power_related_troubleshooting_steps" id="power_related_troubleshooting_steps">Power Related Troubleshooting Steps</a></h2>
+<div class="level2">
+
+</div>
+
+<h3><a name="check_to_see_if_the_power_supply_is_within_specification" id="check_to_see_if_the_power_supply_is_within_specification">Check to see if the power supply is within specification</a></h3>
+<div class="level3">
+
+<p>
+
+<strong>Power supply considerations:</strong>
+</p>
+
+<p>
+<strong>For EM100/120 series</strong>, we recommend a power supply of:
+</p>
+
+<p>
+- 5V, +/- 5% or less.
+- Capable of at least 100mA at the rated voltage stability.
+</p>
+
+<p>
+
+<strong>For EM200/202 series</strong>, we recommend a power supply of:
+</p>
+
+<p>
+- 5V, +/- 5% or less.
+- Capable of at least 500mA at the rated voltage stability.
+</p>
+
+<p>
+
+<strong>For EM1000 series</strong>, we recommend a power supply of:
+</p>
+
+<p>
+- 3.3V, +/- 5% or less.
+- Capable of at least 500mA at the rated voltage stability.
+</p>
+
+<p>
+
+<strong>For DS100 series</strong>, we recommend a power supply of:
+</p>
+
+<p>
+- 12V.  (DS100 regulates its own power, thus voltage level does not have to be as precise)
+- Capable of at least 100mA at the rated voltage stability.
+</p>
+
+<p>
+
+<strong>For DS202 series</strong>, we recommend a power supply of:
+</p>
+
+<p>
+- 12V.  (DS202 regulates its own power, thus voltage level does not have to be as precise)
+- Capable of at least 500mA at the rated voltage stability.
+</p>
+
+<p>
+
+Why the over-specification from the requirement stated?
+- Power supply runs cooler when it is not anywhere close to the maximum specification.
+- Components in the power supply stays cooler, and thus will have a much longer lifetime.
+- Cooler environment allows the power supply to work more efficiently, and performs better.
+- Some vendors inflate their power supply&#039;s rated power, it is always safer to have some headroom in the power supply.
+</p>
+
+<p>
+
+If you suspect power supply is at fault, there is a way to measure the power supply to see if it is working properly.
+
+</p>
+<ol>
+<li class="level1"><div class="li"> measure the power supply&#039;s voltage without load (ie: not connected to our module).  See if the voltage is within specification, and record down the voltage measured.</div>
+</li>
+<li class="level1"><div class="li"> connect the power supply to our EM or DS series module, and measure the voltage.  Please record down the voltage now and note the difference between this and the previous measured voltage when it is not connected to a load.</div>
+</li>
+<li class="level1"><div class="li"> If #1&#039;s result is already out of <acronym title="specification">spec</acronym>, then you would know that the particular power supply is already not suited to the job.  If #2 resulting in voltage dropping down to below specification, then it means the power supply is unable to supply the power the module needs, and thus out of specification.</div>
+</li>
+</ol>
+
+</div>
+
+<h2><a name="if_all_else_fails" id="if_all_else_fails">If All Else Fails</a></h2>
+<div class="level2">
+
+<p>
+
+If the device / module is still not performing normally, please contact our Support Team at <a href="javascript:if(confirm('http://tibbo.com/support/contact  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support/contact'" tppabs="http://tibbo.com/support/contact" class="urlextern" title="http://tibbo.com/support/contact"  rel="nofollow">http://tibbo.com/support/contact</a> detailing the problem you are encountering and please remember to mention that you have already followed the troubleshooting steps outlined in this knowledge base document.
+</p>
+
+</div>
+
+    <!-- wikipage stop -->
+  </div>
+
+
+
+</div>
+<!-- real main body/ -->
+</div>
+				<br/>
+				<p style="color:#828282;margin-left:15px;font-size:12px">&copy; Tibbo Technology Inc. 2001-2009&nbsp;&nbsp;
+
+<a href="javascript:if(confirm('http://old.tibbo.com/corporate/contacts.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://old.tibbo.com/corporate/contacts.html'" tppabs="http://old.tibbo.com/corporate/contacts.html">Contact Us</a>&nbsp;|&nbsp;<a href="javascript:if(confirm('http://old.tibbo.com/account.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://old.tibbo.com/account.html'" tppabs="http://old.tibbo.com/account.html">Account</a>				</p>
+			</td>
+		</tr>
+	</table>
+
+
+
+  
+  
+
+  <div class="clearer">&nbsp;</div>
+
+  
+
+
+<div class="no"><img src="../../lib/exe/indexer.php-id=general-hardware-determining_point_of_failure&1457462903.gif" tppabs="http://old.tibbo.com/kb/lib/exe/indexer.php?id=general%3Ahardware%3Adetermining_point_of_failure&1457462903" width="1" height="1" alt=""  /></div>
+
+
+</body>
+</html>

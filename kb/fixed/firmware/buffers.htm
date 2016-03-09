@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+ lang="en" dir="ltr">
+<head>
+  <link rel="stylesheet" href="../../../../m0.tibbo.net/modules/min/g=css_tm&30.css" tppabs="http://m0.tibbo.net/modules/min/g=css_tm&30" type="text/css" />
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>
+    Size of the Routing Buffers and How They Affect the Device Server    [DokuWiki]
+  </title>
+
+  <meta name="generator" content="DokuWiki Release 2009-12-25c &quot;Lemming&quot;" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2010-03-03T16:04:36+0300" />
+<meta name="keywords" content="fixed,firmware,buffers" />
+<link rel="search" type="application/opensearchdescription+xml" href="/kb/lib/exe/opensearch.php" title="DokuWiki" />
+<link rel="start" href="/kb/" />
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="/kb/feed.php" />
+<link rel="alternate" type="application/rss+xml" title="Current Namespace" href="/kb/feed.php?mode=list&amp;ns=fixed:firmware" />
+<link rel="alternate" type="text/html" title="Plain HTML" href="/kb/_export/xhtml/fixed/firmware/buffers" />
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="/kb/_export/raw/fixed/firmware/buffers" />
+<link rel="canonical" href="http://old.tibbo.com/kb/fixed/firmware/buffers" />
+<link rel="stylesheet" media="all" type="text/css" href="../../lib/exe/css.php-s=all&t=new2&tseed=1273149525.css" tppabs="http://old.tibbo.com/kb/lib/exe/css.php?s=all&t=new2&tseed=1273149525" />
+<link rel="stylesheet" media="screen" type="text/css" href="../../lib/exe/css.php-t=new2&tseed=1273149525.css" tppabs="http://old.tibbo.com/kb/lib/exe/css.php?t=new2&tseed=1273149525" />
+<link rel="stylesheet" media="print" type="text/css" href="../../lib/exe/css.php-s=print&t=new2&tseed=1273149525.css" tppabs="http://old.tibbo.com/kb/lib/exe/css.php?s=print&t=new2&tseed=1273149525" />
+<script type="text/javascript" charset="utf-8" ><!--//--><![CDATA[//><!--
+var NS='fixed:firmware';var JSINFO = {"id":"fixed:firmware:buffers","namespace":"fixed:firmware"};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php-tseed=1273149525" tppabs="http://old.tibbo.com/kb/lib/exe/js.php?tseed=1273149525" ></script>
+
+  <link rel="shortcut icon" href="/kb/lib/tpl/new2/images/favicon.ico" />
+
+  	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9366256-1']);
+  _gaq.push(['_setDomainName', 'http://old.tibbo.com/kb/fixed/firmware/.tibbo.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body style="margin: 0pt; padding: 17px; background-color: rgb(238, 238, 238); background-image: url(/images/bg.gif); background-repeat: repeat-x;" onload="preload();">
+
+<div id="navbar">
+
+<div class="header">
+ <div class="logo">
+<a href="javascript:if(confirm('http://tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/'" tppabs="http://tibbo.com/"><img src="../../../../i1.tibbo.net/images/logo.png" tppabs="http://i1.tibbo.net/images/logo.png" alt="Serial to Ethernet, Device Servers, Remote Monitoring, Device Management" width="100" height="44" border="0"/></a>
+ </div>
+ <div class="menu_wrapper en">
+<!-- topmenu -->
+<div class="topmenu">
+<div class="menuitems"><ul><li><a href="javascript:if(confirm('http://tibbo.com/products/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/products/'" tppabs="http://tibbo.com/products/">Products</a></li><li><a href="javascript:if(confirm('http://tibbo.com/downloads.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/downloads.html'" tppabs="http://tibbo.com/downloads.html">Downloads</a></li><li><a href="javascript:if(confirm('http://tibbo.com/buy/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/buy/'" tppabs="http://tibbo.com/buy/">Buy</a></li>
+<li>Docs &amp; Support</li><li><a href="javascript:if(confirm('http://tibbo.com/corporate/about  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/corporate/about'" tppabs="http://tibbo.com/corporate/about">Corporate</a></li><li><a href="javascript:if(confirm('http://blog.tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://blog.tibbo.com/'" tppabs="http://blog.tibbo.com/">News</a></li></ul></div>  <div class="search">
+		<form action="http://tibbo.com/search.html" method="get">
+			<input name="q" type="text" value="Search..." onblur="if(this.value=='') this.value='Search...';" onfocus="if(this.value=='Search...') this.value='';"/>
+		</form>
+	</div>
+</div>
+<div class="topmenu">
+<div class="menuitems"><ul><li><a href="javascript:if(confirm('http://tibbo.com/soi/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/soi/'" tppabs="http://tibbo.com/soi/">Serial-over-IP</a></li><li><a href="javascript:if(confirm('http://tibbo.com/basic/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/basic/'" tppabs="http://tibbo.com/basic/">Programmable</a></li><li><a href="javascript:if(confirm('http://aggregate.tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://aggregate.tibbo.com/'" tppabs="http://aggregate.tibbo.com/">Device Management</a></li><li><a href="javascript:if(confirm('http://tibbo.com/ninja/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/ninja/'" tppabs="http://tibbo.com/ninja/">Terminal/Sniffer</a></li><li><a href="javascript:if(confirm('http://tibbo.com/oem/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/oem/'" tppabs="http://tibbo.com/oem/">OEM/ODM</a></li></ul></div>
+
+</div>
+<!-- topmenu / -->
+</div>
+
+
+</div>
+
+	</div>
+
+	<table style="margin-top: 13px;" align="center" border="0" cellpadding="0" cellspacing="0" width="950px">
+
+		<tbody><tr>
+			<td style="background-image: url(/images/tstuff/support-bg.gif);"><a href="javascript:if(confirm('http://tibbo.com/support.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support.html'" tppabs="http://tibbo.com/support.html"><img src="../../../images/tstuff/support-logo.gif" tppabs="http://old.tibbo.com/images/tstuff/support-logo.gif" alt="" border="0" height="94" width="464"/></a><br/></td>
+			<td style="background-image: url(/images/tstuff/support-bg.gif);" align="right"><img src="../../../images/tstuff/support-img.jpg" tppabs="http://old.tibbo.com/images/tstuff/support-img.jpg" alt="" border="0" height="94" width="470"/><br/></td>
+		</tr>
+	</tbody></table>
+
+
+
+
+
+
+<table cellspacing="0" cellpadding="0" border="0" width="950px" align="center">
+		<tr valign="top">
+			<td width="214px">
+
+
+
+
+
+
+
+<div class='new_leftmenu'>
+<ul>
+<li><a href="javascript:if(confirm('http://tibbo.com/support.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support.html'" tppabs="http://tibbo.com/support.html">Support Home</a></li>
+<li><a href="javascript:if(confirm('http://tibbo.com/kb/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/kb/'" tppabs="http://tibbo.com/kb/" style='color:Gray;'>Knowledge Base</a></li>
+<li><a href="javascript:if(confirm('http://docs.tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://docs.tibbo.com/'" tppabs="http://docs.tibbo.com/">Documentation</a></li>
+<li><a href="javascript:if(confirm('http://tibbo.com/support/contact  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support/contact'" tppabs="http://tibbo.com/support/contact">Contact Support</a></li>
+<li><a href="javascript:if(confirm('http://getsatisfaction.com/tibbo  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://getsatisfaction.com/tibbo'" tppabs="http://getsatisfaction.com/tibbo">Unofficial Forum</a></li>
+</ul>
+</div>
+</td>
+
+<!-- t / -->
+
+			<td><img src="../../../images/spacer.gif" tppabs="http://old.tibbo.com/images/spacer.gif" alt="" width="12" height="12px" border="0"/></td>
+			<td width="724px"><!-- t -->
+
+<div class="new_main_frame" style="margin-top:12px">
+<!-- real main body -->
+<!--
+ee
+{MYVAR}
+xxx
+-->
+<div class="dokuwiki">
+  <div class="stylehead">
+
+      <div class="clearer"></div>
+    </div>
+
+
+
+
+
+    
+  <div class="page">
+    <!-- wikipage start -->
+
+
+
+<h1><a name="size_of_the_routing_buffers_and_how_they_affect_the_device_server" id="size_of_the_routing_buffers_and_how_they_affect_the_device_server">Size of the Routing Buffers and How They Affect the Device Server</a></h1>
+<div class="level1">
+
+<p>
+
+<strong>Question:</strong> I am wondering if the capacity of the internal serial buffers of the Device Server is enough for my serial application. How much data can the buffers hold (transmit)?
+</p>
+
+<p>
+<strong>Answer:</strong> Just checking the physical capacity of the serial buffers of the Device Server is not a correct approach. Several other factors must be taken into consideration. The ability of the Device Server to transmit (without losses) the serial data of a certain size also depends on the selected <strong>transport protocol</strong> and <strong>flow control</strong> options.
+</p>
+
+</div>
+
+<h2><a name="routing_buffers" id="routing_buffers">Routing buffers</a></h2>
+<div class="level2">
+
+<p>
+
+Routing buffers, as the name implies, hold the data being routed between the Ethernet and serial port of the Device Server. We refer to these buffers as “routing buffers” and not “serial buffers” because they could be called “Ethernet buffers” just as well.
+</p>
+
+<p>
+There are two routing buffers, one for each routing direction (Serial–&gt;Ethernet and Ethernet–&gt;Serial). 
+</p>
+
+<p>
+<a href="javascript:if(confirm('http://www.tibbo.com/images/articles/routing%20buffers.gif  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.tibbo.com/images/articles/routing%20buffers.gif'" tppabs="http://old.tibbo.com/kb/lib/exe/fetch.php?hash=b5b4a7&media=http%3A%2F%2Fwww.tibbo.com%2Fimages%2Farticles%2Frouting%2520buffers.gif" class="media" title="http://www.tibbo.com/images/articles/routing%20buffers.gif"><img src="../../../../www.tibbo.com/images/articles/routing buffers.gif" tppabs="http://old.tibbo.com/kb/lib/exe/fetch.php?hash=b5b4a7&media=http%3A%2F%2Fwww.tibbo.com%2Fimages%2Farticles%2Frouting%2520buffers.gif" class="media" alt="" /></a>
+</p>
+
+<p>
+Notice that total serial–&gt;Ethernet buffer capacity is listed as 510 (255) bytes. This means that while the DS100 has a 510-byte buffer, it is guaranteed to receive 255 bytes without using <strong>RTS/CTS handshaking</strong>. When RTS/CTS handshaking is enabled the DS100 (EM100) is guaranteed to reliably receive all 510 bytes.
+</p>
+
+</div>
+
+<h2><a name="buffer_capacity_in_second-generation_models" id="buffer_capacity_in_second-generation_models">Buffer Capacity in Second-Generation Models</a></h2>
+<div class="level2">
+
+<p>
+In Second-Generation Tibbo devices, such as EM120, EM200 and EM202, the Routing Buffer size is <strong>8KB</strong> (Kilobytes) in each of the two buffers (a total of 16KB). 
+</p>
+
+</div>
+
+<h2><a name="how_flow_control_and_transport_protocol_affect_your_calculations" id="how_flow_control_and_transport_protocol_affect_your_calculations">How Flow Control and Transport Protocol affect your calculations</a></h2>
+<div class="level2">
+
+<p>
+
+But do the above buffer capacities mean that you can only transmit 510 (255) bytes in the Serial–&gt;Ethernet direction and 510 bytes in the Ethernet–&gt;Serial direction? Will the buffers overflow if you attempt to send more data than that? To answer this question you need to take into account the transport protocol and the flow control option. The table below shows the possibility of buffer overflows in different operating modes:
+
+</p>
+<table class="inline">
+	<tr class="row0">
+		<td class="col0"><strong>Transport Protocol</strong></td><td class="col1"><strong>Flow Control</strong></td><td class="col2"><strong>Can Ethernet → Serial buffer overflow?</strong></td><td class="col3"><strong>Can Serial → Ethernet buffer overflow?</strong></td>
+	</tr>
+	<tr class="row1">
+		<td class="col0">UDP/IP</td><td class="col1">disabled</td><td class="col2"><strong>Yes, it is possible</strong></td><td class="col3"><strong>Yes, it is possible</strong></td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">UDP/IP</td><td class="col1">RTS/CTS</td><td class="col2"><strong>Yes, it is possible</strong></td><td class="col3">Never</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">TCP/IP</td><td class="col1">disabled</td><td class="col2">Never</td><td class="col3"><strong>Yes, it is possible</strong></td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">TCP/IP</td><td class="col1">RTS/CTS</td><td class="col2">Never</td><td class="col3">Never</td>
+	</tr>
+</table>
+
+<p>
+
+As you can see from the Table above the serial–&gt;Ethernet buffer can overflow when the RTS/CTS flow control is disabled and will never overflow when the RTS/CTS flow control is enabled (provided that your serial device supports the RTS/CTS handshaking). The Ethernet–&gt;serial buffer can overflow when the UDP/IP transport protocol is used and will never overflow with TCP/IP transport protocol (this is because the TCP/IP has its own reliable flow control mechanism).
+</p>
+
+</div>
+
+<h2><a name="when_you_are_using_the_tcpip_transport_protocol_and_the_rtscts_flow_control" id="when_you_are_using_the_tcpip_transport_protocol_and_the_rtscts_flow_control">When you are using the TCP/IP transport protocol and the RTS/CTS flow control</a></h2>
+<div class="level2">
+
+<p>
+
+If you are using the TCP/IP transport protocol and the RTS/CTS flow control then you can reliably transmit the data of any size. You can pass megabytes upon megabytes of data through the Device Server, and simultaneously in both directions too!
+</p>
+
+</div>
+
+<h2><a name="when_you_are_using_the_udpip_transport_protocol" id="when_you_are_using_the_udpip_transport_protocol">When you are using the UDP/IP transport protocol</a></h2>
+<div class="level2">
+
+<p>
+
+UDP/IP is a connectionless protocol, it doesn&#039;t have any built-in mechanism to prevent the receiving buffer from overflowing. You need to make sure that the data you send does not overflow the Ethernet–&gt;serial buffer. Just sending less than 510 bytes at a time won&#039;t be enough- you need to estimate how fast the data is going out through the serial port.
+</p>
+
+</div>
+
+<h2><a name="when_you_are_not_using_the_rtscts_flow_control" id="when_you_are_not_using_the_rtscts_flow_control">When you are not using the RTS/CTS flow control</a></h2>
+<div class="level2">
+
+<p>
+
+Be careful not to overload the serial–&gt;Ethernet buffer. If the Ethernet channel is not very congested so the Ethernet packets can be sent without any delays the DS100 (EM100) can reliably route a constant serial data stream at speeds up to 38400bps. However, the Ethernet network is not a stable media with guaranteed minimum throughput. Congestions can spontaneously occur on the Ethernet network preventing the DS100 from sending out the data fast enough to keep the serial–&gt;Ethernet buffer from overflowing.
+</p>
+
+</div>
+
+<h2><a name="using_the_device_server_with_stream_systems" id="using_the_device_server_with_stream_systems">Using the Device Server with &quot;stream&quot; systems</a></h2>
+<div class="level2">
+
+<p>
+
+In practice all serial devices that are designed to process infinite serial data streams support RTS/CTS flow control. To make the Device Server work reliably with such devices enable the RTS/CTS flow control and use the TCP/IP transport protocol.
+</p>
+
+</div>
+
+<h2><a name="using_the_device_server_with_command-reply_systems" id="using_the_device_server_with_command-reply_systems">Using the Device Server with &quot;command-reply&quot; systems</a></h2>
+<div class="level2">
+
+<p>
+
+Many serial devices utilize command-reply communications protocols that use some form of preformatted packets for data exchange. Typically there is a “master” device that sends commands to its “slaves” which send back their replies. Many such systems do not support RTS/CTS flow control. The Device Server will work reliably with such a device if the maximum length of command (or reply) does not exceed its internal buffer capacity. For the serial–&gt;Ethernet direction you can consider this capacity to be 510 bytes for baudrates of up to 38400bps and 255 bytes for higher baudrates. For the Ethernet–&gt;serial direction this capacity is 510 bytes.
+</p>
+
+</div>
+
+    <!-- wikipage stop -->
+  </div>
+
+
+
+</div>
+<!-- real main body/ -->
+</div>
+				<br/>
+				<p style="color:#828282;margin-left:15px;font-size:12px">&copy; Tibbo Technology Inc. 2001-2009&nbsp;&nbsp;
+
+<a href="javascript:if(confirm('http://old.tibbo.com/corporate/contacts.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://old.tibbo.com/corporate/contacts.html'" tppabs="http://old.tibbo.com/corporate/contacts.html">Contact Us</a>&nbsp;|&nbsp;<a href="javascript:if(confirm('http://old.tibbo.com/account.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://old.tibbo.com/account.html'" tppabs="http://old.tibbo.com/account.html">Account</a>				</p>
+			</td>
+		</tr>
+	</table>
+
+
+
+  
+  
+
+  <div class="clearer">&nbsp;</div>
+
+  
+
+
+<div class="no"><img src="../../lib/exe/indexer.php-id=fixed-firmware-buffers&1457462881.gif" tppabs="http://old.tibbo.com/kb/lib/exe/indexer.php?id=fixed%3Afirmware%3Abuffers&1457462881" width="1" height="1" alt=""  /></div>
+
+
+</body>
+</html>

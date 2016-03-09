@@ -1,0 +1,427 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+ lang="en" dir="ltr">
+<head>
+  <link rel="stylesheet" href="../../../../m0.tibbo.net/modules/min/g=css_tm&30.css" tppabs="http://m0.tibbo.net/modules/min/g=css_tm&30" type="text/css" />
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>
+    Code Tips    [DokuWiki]
+  </title>
+
+  <meta name="generator" content="DokuWiki Release 2009-12-25c &quot;Lemming&quot;" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2011-06-23T19:07:34+0400" />
+<meta name="keywords" content="basic,language,tips" />
+<link rel="search" type="application/opensearchdescription+xml" href="/kb/lib/exe/opensearch.php" title="DokuWiki" />
+<link rel="start" href="/kb/" />
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="/kb/feed.php" />
+<link rel="alternate" type="application/rss+xml" title="Current Namespace" href="/kb/feed.php?mode=list&amp;ns=basic:language" />
+<link rel="alternate" type="text/html" title="Plain HTML" href="/kb/_export/xhtml/basic/language/tips" />
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="/kb/_export/raw/basic/language/tips" />
+<link rel="canonical" href="http://old.tibbo.com/kb/basic/language/tips" />
+<link rel="stylesheet" media="all" type="text/css" href="../../lib/exe/css.php-s=all&t=new2&tseed=1273149525.css" tppabs="http://old.tibbo.com/kb/lib/exe/css.php?s=all&t=new2&tseed=1273149525" />
+<link rel="stylesheet" media="screen" type="text/css" href="../../lib/exe/css.php-t=new2&tseed=1273149525.css" tppabs="http://old.tibbo.com/kb/lib/exe/css.php?t=new2&tseed=1273149525" />
+<link rel="stylesheet" media="print" type="text/css" href="../../lib/exe/css.php-s=print&t=new2&tseed=1273149525.css" tppabs="http://old.tibbo.com/kb/lib/exe/css.php?s=print&t=new2&tseed=1273149525" />
+<script type="text/javascript" charset="utf-8" ><!--//--><![CDATA[//><!--
+var NS='basic:language';var JSINFO = {"id":"basic:language:tips","namespace":"basic:language"};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php-tseed=1273149525" tppabs="http://old.tibbo.com/kb/lib/exe/js.php?tseed=1273149525" ></script>
+
+  <link rel="shortcut icon" href="/kb/lib/tpl/new2/images/favicon.ico" />
+
+  	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9366256-1']);
+  _gaq.push(['_setDomainName', 'http://old.tibbo.com/kb/basic/language/.tibbo.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body style="margin: 0pt; padding: 17px; background-color: rgb(238, 238, 238); background-image: url(/images/bg.gif); background-repeat: repeat-x;" onload="preload();">
+
+<div id="navbar">
+
+<div class="header">
+ <div class="logo">
+<a href="javascript:if(confirm('http://tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/'" tppabs="http://tibbo.com/"><img src="../../../../i1.tibbo.net/images/logo.png" tppabs="http://i1.tibbo.net/images/logo.png" alt="Serial to Ethernet, Device Servers, Remote Monitoring, Device Management" width="100" height="44" border="0"/></a>
+ </div>
+ <div class="menu_wrapper en">
+<!-- topmenu -->
+<div class="topmenu">
+<div class="menuitems"><ul><li><a href="javascript:if(confirm('http://tibbo.com/products/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/products/'" tppabs="http://tibbo.com/products/">Products</a></li><li><a href="javascript:if(confirm('http://tibbo.com/downloads.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/downloads.html'" tppabs="http://tibbo.com/downloads.html">Downloads</a></li><li><a href="javascript:if(confirm('http://tibbo.com/buy/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/buy/'" tppabs="http://tibbo.com/buy/">Buy</a></li>
+<li>Docs &amp; Support</li><li><a href="javascript:if(confirm('http://tibbo.com/corporate/about  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/corporate/about'" tppabs="http://tibbo.com/corporate/about">Corporate</a></li><li><a href="javascript:if(confirm('http://blog.tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://blog.tibbo.com/'" tppabs="http://blog.tibbo.com/">News</a></li></ul></div>  <div class="search">
+		<form action="http://tibbo.com/search.html" method="get">
+			<input name="q" type="text" value="Search..." onblur="if(this.value=='') this.value='Search...';" onfocus="if(this.value=='Search...') this.value='';"/>
+		</form>
+	</div>
+</div>
+<div class="topmenu">
+<div class="menuitems"><ul><li><a href="javascript:if(confirm('http://tibbo.com/soi/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/soi/'" tppabs="http://tibbo.com/soi/">Serial-over-IP</a></li><li><a href="javascript:if(confirm('http://tibbo.com/basic/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/basic/'" tppabs="http://tibbo.com/basic/">Programmable</a></li><li><a href="javascript:if(confirm('http://aggregate.tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://aggregate.tibbo.com/'" tppabs="http://aggregate.tibbo.com/">Device Management</a></li><li><a href="javascript:if(confirm('http://tibbo.com/ninja/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/ninja/'" tppabs="http://tibbo.com/ninja/">Terminal/Sniffer</a></li><li><a href="javascript:if(confirm('http://tibbo.com/oem/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/oem/'" tppabs="http://tibbo.com/oem/">OEM/ODM</a></li></ul></div>
+
+</div>
+<!-- topmenu / -->
+</div>
+
+
+</div>
+
+	</div>
+
+	<table style="margin-top: 13px;" align="center" border="0" cellpadding="0" cellspacing="0" width="950px">
+
+		<tbody><tr>
+			<td style="background-image: url(/images/tstuff/support-bg.gif);"><a href="javascript:if(confirm('http://tibbo.com/support.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support.html'" tppabs="http://tibbo.com/support.html"><img src="../../../images/tstuff/support-logo.gif" tppabs="http://old.tibbo.com/images/tstuff/support-logo.gif" alt="" border="0" height="94" width="464"/></a><br/></td>
+			<td style="background-image: url(/images/tstuff/support-bg.gif);" align="right"><img src="../../../images/tstuff/support-img.jpg" tppabs="http://old.tibbo.com/images/tstuff/support-img.jpg" alt="" border="0" height="94" width="470"/><br/></td>
+		</tr>
+	</tbody></table>
+
+
+
+
+
+
+<table cellspacing="0" cellpadding="0" border="0" width="950px" align="center">
+		<tr valign="top">
+			<td width="214px">
+
+
+
+
+
+
+
+<div class='new_leftmenu'>
+<ul>
+<li><a href="javascript:if(confirm('http://tibbo.com/support.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support.html'" tppabs="http://tibbo.com/support.html">Support Home</a></li>
+<li><a href="javascript:if(confirm('http://tibbo.com/kb/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/kb/'" tppabs="http://tibbo.com/kb/" style='color:Gray;'>Knowledge Base</a></li>
+<li><a href="javascript:if(confirm('http://docs.tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://docs.tibbo.com/'" tppabs="http://docs.tibbo.com/">Documentation</a></li>
+<li><a href="javascript:if(confirm('http://tibbo.com/support/contact  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support/contact'" tppabs="http://tibbo.com/support/contact">Contact Support</a></li>
+<li><a href="javascript:if(confirm('http://getsatisfaction.com/tibbo  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://getsatisfaction.com/tibbo'" tppabs="http://getsatisfaction.com/tibbo">Unofficial Forum</a></li>
+</ul>
+</div>
+</td>
+
+<!-- t / -->
+
+			<td><img src="../../../images/spacer.gif" tppabs="http://old.tibbo.com/images/spacer.gif" alt="" width="12" height="12px" border="0"/></td>
+			<td width="724px"><!-- t -->
+
+<div class="new_main_frame" style="margin-top:12px">
+<!-- real main body -->
+<!--
+ee
+{MYVAR}
+xxx
+-->
+<div class="dokuwiki">
+  <div class="stylehead">
+
+      <div class="clearer"></div>
+    </div>
+
+
+
+
+
+    
+  <div class="page">
+    <!-- wikipage start -->
+
+
+
+<h1><a name="code_tips" id="code_tips">Code Tips</a></h1>
+<div class="level1">
+
+<p>
+On this page we will share tips and interesting ideas related to programming with Tibbo BASIC. The content of this page is not limited to our own, if you have any interesting ideas or experiences related to programming with Tibbo BASIC that you would like to share with others, please send us an email at support@tibbo.com
+</p>
+
+</div>
+
+<h1><a name="hardware_verification_using_md5" id="hardware_verification_using_md5">Hardware Verification Using MD5</a></h1>
+<div class="level1">
+
+<p>
+
+This code tip is aimed mainly at larger system integrators and manufacturers who develop significant Tibbo BASIC applications and wish to protect their work. 
+</p>
+
+<p>
+Consider the following scenario:
+</p>
+
+<p>
+<strong>OEM A</strong> works hard to develop a product around a Tibbo module, including a unique Tibbo BASIC application. <strong>Client B</strong> buys this product, and likes it.
+</p>
+
+<p>
+Client B now tries to increase profit margins. So they come up with a “bright” idea – why not go to some unscrupulous design house, copy the device, get a cheaper source for Tibbo modules, and just copy the application from the legally-purchased onto the new, illegally replicated, device? “Easy money”, right?
+</p>
+
+<p>
+There is a less sinister but also plausible scenario: what if this Tibbo BASIC app was designed for some standard Tibbo hardware like the DS1000? In this case they don’t have to go to any other design house – they can just buy from Tibbo.
+</p>
+
+<p>
+To provide OEMs with a means to prevent such “code freeloading”, Tibbo programmable modules such as the EM1000 and EM1202 offer a code protection scheme. At the heart of this scheme is a unique serial number assigned to each module. This number is accessible via the <a href="javascript:if(confirm('http://docs.tibbo.com/taiko/sys_serialnum.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://docs.tibbo.com/taiko/sys_serialnum.htm'" tppabs="http://docs.tibbo.com/taiko/sys_serialnum.htm" class="urlextern" title="http://docs.tibbo.com/taiko/sys_serialnum.htm"  rel="nofollow">sys.serialnum</a> property:
+</p>
+
+<p>
+The serial number is really a 128-byte string which has two 64-byte fields. The first field can be programmed by the user – presumable, OEM “A”. This programming can only take place once. The second field is present at the factory and cannot be changed. The second field contains the serial number which is unique for each Tibbo module.
+</p>
+
+<p>
+In a nutshell, the proposed protection method works like this:
+
+</p>
+<ol>
+<li class="level1"><div class="li"> Taking the fixed (preset) portion of the serial number;</div>
+</li>
+<li class="level1"><div class="li"> Combining this fixed number with a secret key (say, a string of 10 characters);</div>
+</li>
+<li class="level1"><div class="li"> Calculating the MD5 hash of the above combination;</div>
+</li>
+<li class="level1"><div class="li"> Storing the MD5 result in the one-time-programmable (<strong>OTP</strong>) field.</div>
+</li>
+</ol>
+
+<p>
+
+Here is how it works in code:
+</p>
+
+<p>
+<strong>Taking the fixed (preset) portion of the serial number</strong>
+</p>
+
+<p>
+Read the serial number into a variable:
+</p>
+<pre class="tbasic code tbasic"><span class="kw1">dim</span> unique <span class="kw1">as</span> <span class="kw1">string</span>
+unique<span class="sy0">=</span><span class="kw2">sys.serialnum</span></pre>
+<p>
+The last 64 bytes contain the unique serial number, while the first 64 bytes can be programmed once to store encrypted data (a passphrase, in this case). Isolate them:
+</p>
+<pre class="tbasic code tbasic">unique<span class="sy0">=</span><span class="kw4">mid</span><span class="br0">&#40;</span>unique<span class="sy0">,</span><span class="nu0">65</span><span class="sy0">,</span><span class="nu0">64</span><span class="br0">&#41;</span></pre>
+<p>
+<strong>Combining this fixed number with a secret key</strong>
+</p>
+
+<p>
+Now, create a passphrase and use the MD5 function to generate a 16-byte hash of the serial number and plain-text passphrase.
+</p>
+<pre class="tbasic code tbasic"><span class="kw1">dim</span> plaintext<span class="sy0">,</span>crypted <span class="kw1">as</span> <span class="kw1">string</span>
+plaintext<span class="sy0">=</span>unique<span class="sy0">+</span><span class="st0">&quot;Hello World&quot;</span>    <span class="co1">' Hello World is our passphrase.</span></pre>
+<p>
+<strong>Calculating the MD5 hash of the above combination</strong>
+
+</p>
+<pre class="tbasic code tbasic">crypted<span class="sy0">=</span><span class="kw4">md5</span><span class="br0">&#40;</span>plaintext<span class="sy0">,</span><span class="st0">&quot;&quot;</span><span class="sy0">,</span><span class="kw6">MD5_FINISH</span><span class="sy0">,</span><span class="kw4">Len</span><span class="br0">&#40;</span>plaintext<span class="br0">&#41;</span><span class="br0">&#41;</span></pre>
+<p>
+<strong>Storing the MD5 result in the one-time-programmable (</strong>OTP<strong>) field</strong>
+</p>
+
+<p>
+Now, save this hash onto the first 64 bytes in the security register. <strong>Remember</strong> -– this is a one-time process; that hash may not be re-written later.
+</p>
+
+<p>
+Because the generated MD5 string is only 16 bytes long, we’re going to append 48 null bytes, and thus bring the string up to a length of 64 bytes, as required by sys.setserialnum:
+</p>
+<pre class="tbasic code tbasic"><span class="kw1">dim</span> null_count <span class="kw1">as</span> <span class="kw1">byte</span>
+<span class="kw1">dim</span> crypted<span class="sy0">,</span> null_str<span class="sy0">,</span> crypted_64 <span class="kw1">as</span> <span class="kw1">string</span>
+<span class="kw1">dim</span> save_result <span class="kw1">as</span> ok_ng
+null_count<span class="sy0">=</span><span class="nu0">64</span><span class="sy0">-</span><span class="kw4">len</span><span class="br0">&#40;</span>crypted<span class="br0">&#41;</span>
+null_str<span class="sy0">=</span><span class="kw4">strgen</span><span class="br0">&#40;</span>null_count<span class="sy0">,</span><span class="kw4">chr</span><span class="br0">&#40;</span><span class="nu0">255</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="co1">' insert null byte in spare area</span>
+crypted_64 <span class="sy0">=</span> crypted <span class="sy0">+</span>null_str    <span class="co1">' 16 add 48 null bytes to be 64 bytes</span>
+save_result<span class="sy0">=</span><span class="kw3">sys.setserialnum</span><span class="br0">&#40;</span>crypted_64<span class="br0">&#41;</span>  <span class="co1">' the argument should be 64 bytes</span></pre>
+<p>
+<strong>Hardware Verification</strong>
+</p>
+
+<p>
+Then, when your application is running on the device, it should verify hardware authenticity like this:
+
+</p>
+<ol>
+<li class="level1"><div class="li"> Take the fixed portion of the serial number;</div>
+</li>
+<li class="level1"><div class="li"> Combine this serial number with the secret word which is embedded inside the application but is not known to the outside world;</div>
+</li>
+<li class="level1"><div class="li"> Calculate the MD5 hash on this combination;</div>
+</li>
+<li class="level1"><div class="li"> Compare the result with the “programmed” code.</div>
+</li>
+<li class="level1"><div class="li"> Run normally if there is a match, abort if there is a mismatch.</div>
+</li>
+</ol>
+
+<p>
+The efficiency of the above method relies on the fact that each Tibbo module has a different fixed code and, therefore, the programmable portion of the code will be different for each device too. There is no way to subvert this protection method other then by reverse-engineering compiled Tibbo BASIC application binary, which is a tedious and ungratifying job.
+</p>
+
+<p>
+
+<strong>Note:</strong> This can all be done with SHA1, too. The only difference is that an SHA1 hash is 20 bytes long, not 16.
+<br/>
+
+<br/>
+
+</p>
+
+</div>
+
+<h1><a name="efficient_use_of_storage_space" id="efficient_use_of_storage_space">Efficient Use of Storage Space</a></h1>
+<div class="level1">
+
+<p>
+
+Coming from PC based programming background, sometimes our coding habits becomes less efficient when dealing with storage space. This creates a problem of running out of memory when a large amount of data (for an embedded device) needs to be stored, and every byte of storage space counts!
+</p>
+
+<p>
+Take for example, when we read / write strings to the EEPROM memory space using the “stor” object, we would have something like the following:
+</p>
+<pre class="tbasic code tbasic">    <span class="kw1">dim</span> x <span class="kw1">as</span> <span class="kw1">string</span>
+    <span class="kw3">stor.setdata</span><span class="br0">&#40;</span><span class="st0">&quot;142&quot;</span><span class="sy0">,</span><span class="nu0">1</span><span class="br0">&#41;</span>
+    x <span class="sy0">=</span> <span class="kw3">stor.getdata</span><span class="br0">&#40;</span><span class="nu0">1</span><span class="sy0">,</span><span class="nu0">3</span><span class="br0">&#41;</span></pre>
+<p>
+The above will store the string 142 into the first position of the EEPROM and we will retrieve this value as a string.
+</p>
+
+<p>
+So, what if when we need to store it as a byte instead of string? Most of us would probably just do it like this:
+</p>
+<pre class="tbasic code tbasic">    <span class="kw1">dim</span> x <span class="kw1">as</span> <span class="kw1">byte</span>
+    <span class="kw3">stor.setdata</span><span class="br0">&#40;</span><span class="nu0">142</span><span class="sy0">,</span><span class="nu0">1</span><span class="br0">&#41;</span>
+    x <span class="sy0">=</span> <span class="kw4">val</span><span class="br0">&#40;</span><span class="kw3">stor.getdata</span><span class="br0">&#40;</span><span class="nu0">1</span><span class="sy0">,</span><span class="nu0">3</span><span class="br0">&#41;</span><span class="br0">&#41;</span></pre>
+<p>
+That would work fine, but notice that it is still taking up 3 bytes of memory space; there is a more memory efficient way to do this:
+</p>
+<pre class="tbasic code tbasic">    <span class="kw1">dim</span> x <span class="kw1">as</span> <span class="kw1">byte</span>
+    <span class="kw3">stor.setdata</span><span class="br0">&#40;</span><span class="kw4">chr</span><span class="br0">&#40;</span><span class="nu0">142</span><span class="br0">&#41;</span><span class="sy0">,</span><span class="nu0">1</span><span class="br0">&#41;</span>
+    x <span class="sy0">=</span> <span class="kw4">asc</span><span class="br0">&#40;</span><span class="kw3">stor.getdata</span><span class="br0">&#40;</span><span class="nu0">1</span><span class="sy0">,</span><span class="nu0">1</span><span class="br0">&#41;</span><span class="br0">&#41;</span></pre>
+<p>
+Now, instead of taking but 3 bytes of storage space, we only use 1 byte by first converting 142 into the <acronym title="American Standard Code for Information Interchange">ASCII</acronym> representation before we store it into the EEPROM. When we retrieve back the data, we just convert it back to its original number.
+</p>
+
+<p>
+<br/>
+
+<br/>
+
+</p>
+
+</div>
+
+<h1><a name="using_sockredir_with_udp" id="using_sockredir_with_udp">Using sock.redir With UDP</a></h1>
+<div class="level1">
+
+<p>
+
+On some of the platforms you can speed up the data transfer by using a technique called buffer redirection, which means that data bypasses the RX buffer and goes directly to the TX buffer of another object. This works great, but with one exception, which is when you are redirecting from a socket that is using UDP, which will generate what seems like “junk data”.
+</p>
+
+<p>
+The reason behind this is that since UDP packets has header information containing the size of the packet, without being processed by the BASIC program, the header is sent together with the data to the destination object&#039;s TX buffer. So, when working with UDP, please use the on_sock_data_arrival event handler.
+</p>
+
+<p>
+Instead of using redirection like this:
+</p>
+<pre class="tbasic code tbasic">    <span class="kw2">sock.num</span> <span class="sy0">=</span> <span class="nu0">0</span>
+    <span class="kw3">sock.redir</span><span class="br0">&#40;</span><span class="kw6">PL_REDIR_SER0</span><span class="br0">&#41;</span></pre>
+<p>
+Change it to this:
+</p>
+<pre class="tbasic code tbasic">    <span class="kw2">sock.num</span> <span class="sy0">=</span> <span class="nu0">0</span>
+    <span class="kw2">ser.num</span> <span class="sy0">=</span> <span class="nu0">0</span>
+    <span class="kw3">ser.setdata</span><span class="br0">&#40;</span><span class="kw3">sock.getdata</span><span class="br0">&#40;</span>ser.txfree<span class="sy0">-</span><span class="kw2">ser.newtxlen</span><span class="br0">&#41;</span><span class="br0">&#41;</span></pre>
+<p>
+Now, the socket is ready to handle UDP!
+</p>
+
+<p>
+<br/>
+
+<br/>
+
+</p>
+
+</div>
+
+<h1><a name="smart_code_that_won_t_work" id="smart_code_that_won_t_work">Smart Code That Won&#039;t Work</a></h1>
+<div class="level1">
+
+<p>
+
+Here&#039;s a good example where what seemingly is a smart and short code that just will not work! Orignially, this was the code used during one of our projects:
+</p>
+<pre class="tbasic code tbasic">    <span class="kw1">dim</span> f <span class="kw1">as</span> <span class="kw1">byte</span>
+    <span class="kw1">for</span> f<span class="sy0">=</span><span class="nu0">0</span> <span class="kw1">to</span> <span class="nu0">3</span>
+        <span class="kw2">ser.num</span><span class="sy0">=</span>f
+        <span class="kw3">ser.setdata</span><span class="br0">&#40;</span><span class="st0">&quot;test&quot;</span><span class="br0">&#41;</span>
+        <span class="kw3">ser.send</span>
+    <span class="kw1">next</span> f</pre>
+<p>
+Ok, so this outputs the same string through all four serial port.
+</p>
+
+<p>
+Suddenly, I thought… do I really need f? Here is my new way:
+</p>
+<pre class="tbasic code tbasic">    <span class="kw1">for</span> <span class="kw2">ser.num</span><span class="sy0">=</span><span class="nu0">0</span> <span class="kw1">to</span> <span class="nu0">3</span>
+        <span class="kw3">ser.setdata</span><span class="br0">&#40;</span><span class="st0">&quot;test&quot;</span><span class="br0">&#41;</span>
+        <span class="kw3">ser.send</span>
+    <span class="kw1">next</span> <span class="kw2">ser.num</span></pre>
+<p>
+Wonderful! Only, it doesn&#039;t work!
+</p>
+
+<p>
+For the cycle to be over, the ser.num must increment beyond the limit. That is, the cycle will be over when ser.num becomes 4. But you can&#039;t set it to 4 - this property is internally limited (to available serial ports 0…3). So writing ser.num=4 will still leave it at 3. So, the cycle will NEVER end.
+
+</p>
+
+</div>
+
+    <!-- wikipage stop -->
+  </div>
+
+
+
+</div>
+<!-- real main body/ -->
+</div>
+				<br/>
+				<p style="color:#828282;margin-left:15px;font-size:12px">&copy; Tibbo Technology Inc. 2001-2009&nbsp;&nbsp;
+
+<a href="javascript:if(confirm('http://old.tibbo.com/corporate/contacts.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://old.tibbo.com/corporate/contacts.html'" tppabs="http://old.tibbo.com/corporate/contacts.html">Contact Us</a>&nbsp;|&nbsp;<a href="javascript:if(confirm('http://old.tibbo.com/account.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://old.tibbo.com/account.html'" tppabs="http://old.tibbo.com/account.html">Account</a>				</p>
+			</td>
+		</tr>
+	</table>
+
+
+
+  
+  
+
+  <div class="clearer">&nbsp;</div>
+
+  
+
+
+<div class="no"><img src="../../lib/exe/indexer.php-id=basic-language-tips&1457462900.gif" tppabs="http://old.tibbo.com/kb/lib/exe/indexer.php?id=basic%3Alanguage%3Atips&1457462900" width="1" height="1" alt=""  /></div>
+
+
+</body>
+</html>

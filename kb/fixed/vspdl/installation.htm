@@ -1,0 +1,1129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+ lang="en" dir="ltr">
+<head>
+  <link rel="stylesheet" href="../../../../m0.tibbo.net/modules/min/g=css_tm&30.css" tppabs="http://m0.tibbo.net/modules/min/g=css_tm&30" type="text/css" />
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>
+    Installing Tibbo Virtual Serial Port Driver under Linux    [DokuWiki]
+  </title>
+
+  <meta name="generator" content="DokuWiki Release 2009-12-25c &quot;Lemming&quot;" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2010-04-12T03:00:30+0400" />
+<meta name="keywords" content="fixed,vspdl,installation" />
+<link rel="search" type="application/opensearchdescription+xml" href="/kb/lib/exe/opensearch.php" title="DokuWiki" />
+<link rel="start" href="/kb/" />
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="/kb/feed.php" />
+<link rel="alternate" type="application/rss+xml" title="Current Namespace" href="/kb/feed.php?mode=list&amp;ns=fixed:vspdl" />
+<link rel="alternate" type="text/html" title="Plain HTML" href="/kb/_export/xhtml/fixed/vspdl/installation" />
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="/kb/_export/raw/fixed/vspdl/installation" />
+<link rel="canonical" href="http://old.tibbo.com/kb/fixed/vspdl/installation" />
+<link rel="stylesheet" media="all" type="text/css" href="../../lib/exe/css.php-s=all&t=new2&tseed=1273149525.css" tppabs="http://old.tibbo.com/kb/lib/exe/css.php?s=all&t=new2&tseed=1273149525" />
+<link rel="stylesheet" media="screen" type="text/css" href="../../lib/exe/css.php-t=new2&tseed=1273149525.css" tppabs="http://old.tibbo.com/kb/lib/exe/css.php?t=new2&tseed=1273149525" />
+<link rel="stylesheet" media="print" type="text/css" href="../../lib/exe/css.php-s=print&t=new2&tseed=1273149525.css" tppabs="http://old.tibbo.com/kb/lib/exe/css.php?s=print&t=new2&tseed=1273149525" />
+<script type="text/javascript" charset="utf-8" ><!--//--><![CDATA[//><!--
+var NS='fixed:vspdl';var JSINFO = {"id":"fixed:vspdl:installation","namespace":"fixed:vspdl"};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php-tseed=1273149525" tppabs="http://old.tibbo.com/kb/lib/exe/js.php?tseed=1273149525" ></script>
+
+  <link rel="shortcut icon" href="/kb/lib/tpl/new2/images/favicon.ico" />
+
+  	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9366256-1']);
+  _gaq.push(['_setDomainName', 'http://old.tibbo.com/kb/fixed/vspdl/.tibbo.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body style="margin: 0pt; padding: 17px; background-color: rgb(238, 238, 238); background-image: url(/images/bg.gif); background-repeat: repeat-x;" onload="preload();">
+
+<div id="navbar">
+
+<div class="header">
+ <div class="logo">
+<a href="javascript:if(confirm('http://tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/'" tppabs="http://tibbo.com/"><img src="../../../../i1.tibbo.net/images/logo.png" tppabs="http://i1.tibbo.net/images/logo.png" alt="Serial to Ethernet, Device Servers, Remote Monitoring, Device Management" width="100" height="44" border="0"/></a>
+ </div>
+ <div class="menu_wrapper en">
+<!-- topmenu -->
+<div class="topmenu">
+<div class="menuitems"><ul><li><a href="javascript:if(confirm('http://tibbo.com/products/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/products/'" tppabs="http://tibbo.com/products/">Products</a></li><li><a href="javascript:if(confirm('http://tibbo.com/downloads.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/downloads.html'" tppabs="http://tibbo.com/downloads.html">Downloads</a></li><li><a href="javascript:if(confirm('http://tibbo.com/buy/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/buy/'" tppabs="http://tibbo.com/buy/">Buy</a></li>
+<li>Docs &amp; Support</li><li><a href="javascript:if(confirm('http://tibbo.com/corporate/about  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/corporate/about'" tppabs="http://tibbo.com/corporate/about">Corporate</a></li><li><a href="javascript:if(confirm('http://blog.tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://blog.tibbo.com/'" tppabs="http://blog.tibbo.com/">News</a></li></ul></div>  <div class="search">
+		<form action="http://tibbo.com/search.html" method="get">
+			<input name="q" type="text" value="Search..." onblur="if(this.value=='') this.value='Search...';" onfocus="if(this.value=='Search...') this.value='';"/>
+		</form>
+	</div>
+</div>
+<div class="topmenu">
+<div class="menuitems"><ul><li><a href="javascript:if(confirm('http://tibbo.com/soi/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/soi/'" tppabs="http://tibbo.com/soi/">Serial-over-IP</a></li><li><a href="javascript:if(confirm('http://tibbo.com/basic/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/basic/'" tppabs="http://tibbo.com/basic/">Programmable</a></li><li><a href="javascript:if(confirm('http://aggregate.tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://aggregate.tibbo.com/'" tppabs="http://aggregate.tibbo.com/">Device Management</a></li><li><a href="javascript:if(confirm('http://tibbo.com/ninja/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/ninja/'" tppabs="http://tibbo.com/ninja/">Terminal/Sniffer</a></li><li><a href="javascript:if(confirm('http://tibbo.com/oem/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/oem/'" tppabs="http://tibbo.com/oem/">OEM/ODM</a></li></ul></div>
+
+</div>
+<!-- topmenu / -->
+</div>
+
+
+</div>
+
+	</div>
+
+	<table style="margin-top: 13px;" align="center" border="0" cellpadding="0" cellspacing="0" width="950px">
+
+		<tbody><tr>
+			<td style="background-image: url(/images/tstuff/support-bg.gif);"><a href="javascript:if(confirm('http://tibbo.com/support.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support.html'" tppabs="http://tibbo.com/support.html"><img src="../../../images/tstuff/support-logo.gif" tppabs="http://old.tibbo.com/images/tstuff/support-logo.gif" alt="" border="0" height="94" width="464"/></a><br/></td>
+			<td style="background-image: url(/images/tstuff/support-bg.gif);" align="right"><img src="../../../images/tstuff/support-img.jpg" tppabs="http://old.tibbo.com/images/tstuff/support-img.jpg" alt="" border="0" height="94" width="470"/><br/></td>
+		</tr>
+	</tbody></table>
+
+
+
+
+
+
+<table cellspacing="0" cellpadding="0" border="0" width="950px" align="center">
+		<tr valign="top">
+			<td width="214px">
+
+
+
+
+
+
+
+<div class='new_leftmenu'>
+<ul>
+<li><a href="javascript:if(confirm('http://tibbo.com/support.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support.html'" tppabs="http://tibbo.com/support.html">Support Home</a></li>
+<li><a href="javascript:if(confirm('http://tibbo.com/kb/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/kb/'" tppabs="http://tibbo.com/kb/" style='color:Gray;'>Knowledge Base</a></li>
+<li><a href="javascript:if(confirm('http://docs.tibbo.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://docs.tibbo.com/'" tppabs="http://docs.tibbo.com/">Documentation</a></li>
+<li><a href="javascript:if(confirm('http://tibbo.com/support/contact  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://tibbo.com/support/contact'" tppabs="http://tibbo.com/support/contact">Contact Support</a></li>
+<li><a href="javascript:if(confirm('http://getsatisfaction.com/tibbo  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://getsatisfaction.com/tibbo'" tppabs="http://getsatisfaction.com/tibbo">Unofficial Forum</a></li>
+</ul>
+</div>
+</td>
+
+<!-- t / -->
+
+			<td><img src="../../../images/spacer.gif" tppabs="http://old.tibbo.com/images/spacer.gif" alt="" width="12" height="12px" border="0"/></td>
+			<td width="724px"><!-- t -->
+
+<div class="new_main_frame" style="margin-top:12px">
+<!-- real main body -->
+<!--
+ee
+{MYVAR}
+xxx
+-->
+<div class="dokuwiki">
+  <div class="stylehead">
+
+      <div class="clearer"></div>
+    </div>
+
+
+
+
+
+    
+  <div class="page">
+    <!-- wikipage start -->
+
+
+
+<h1><a name="installing_tibbo_virtual_serial_port_driver_under_linux" id="installing_tibbo_virtual_serial_port_driver_under_linux">Installing Tibbo Virtual Serial Port Driver under Linux</a></h1>
+<div class="level1">
+
+
+
+</div>
+
+<h1><a name="pre-installation" id="pre-installation">0. Pre-installation</a></h1>
+<div class="level1">
+
+</div>
+
+<h3><a name="downloading_vspdl" id="downloading_vspdl">0.0 Downloading VSPDL</a></h3>
+<div class="level3">
+
+<p>
+
+Make sure that you are using the latest version of VSPDL.
+You can always get the latest version from <a href="javascript:if(confirm('http://www.tibbo.com/vspdl.php  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.tibbo.com/vspdl.php'" tppabs="http://www.tibbo.com/vspdl.php" class="urlextern" title="http://www.tibbo.com/vspdl.php"  rel="nofollow">http://www.tibbo.com/vspdl.php</a>
+</p>
+
+</div>
+
+<h3><a name="unpacking_vspdl" id="unpacking_vspdl">0.1 Unpacking VSPDL</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="unpacking_from_rpm" id="unpacking_from_rpm">0.1.0 Unpacking from RPM</a></h4>
+<div class="level4">
+<pre class="file">
+[root@dvhome vspd.tmp]# rpm -ivh ./vspd-1.11-linux.i586.rpm
+Preparing... ####################### [100%]
+  - vspd ######################### [100%]
+</pre>
+
+<p>
+
+*RPM may report there about failed dependecies
+</p>
+
+</div>
+
+<h4><a name="unpacking_from_tar" id="unpacking_from_tar">0.1.1 Unpacking from TAR</a></h4>
+<div class="level4">
+<pre class="file">
+[root@dvhome vspd.tmp]# tar xvfz ./vspd-1.11-linux.tar.gz -C /
+usr/local/vspd-1.11-dist/
+usr/local/vspd-1.11-dist/bin/
+usr/local/vspd-1.11-dist/bin/vsptty
+usr/local/vspd-1.11-dist/bin/vspd.sh.in
+usr/local/vspd-1.11-dist/bin/vspm.sh.in
+.... (skipped) ....
+usr/local/vspd-1.11-dist/remove.sh
+usr/local/vspd-1.11-dist/configure
+usr/local/vspd-1.11-dist/README
+</pre>
+
+</div>
+
+<h3><a name="error_reporting_during_the_rpm_installation" id="error_reporting_during_the_rpm_installation">0.2 Error reporting during the RPM installation</a></h3>
+<div class="level3">
+<pre class="file">
+[root@dvhome vspd.tmp]# uname -a &gt;&gt; ./report.txt 
+[root@dvhome vspd.tmp]# rpm -ivv ./vspd-1.11-linux.i586.rpm 2&gt;&gt; ./report.txt 
+</pre>
+
+<p>
+
+Please, attach ./report.txt to your message when requesting support from Tibbo.
+</p>
+
+</div>
+
+<h2><a name="installation" id="installation">1. Installation</a></h2>
+<div class="level2">
+
+<p>
+
+After completing &#039;pre-installation&#039; section you should have /usr/local/vspd-x.yy-dist directory:
+
+</p>
+<pre class="file">
+[root@dvhome local]# ls -l /usr/local/vspd-1.11-dist/
+total 84
+drwxr-xr-x	 2 root	  root			4096 Dec  7 01:20 bin/
+-rwx------	 1 root	  root		  47674 Dec  2 11:13 configure*
+drwxr-xr-x	 2 root	  root			4096 Dec  7 01:20 etc/
+drwxr-xr-x	 2 root	  root			4096 Dec  2 11:13 include/
+-rwx------	 1 root	  root			2595 Dec  2 11:13 install.sh*
+drwxr-xr-x	 3 root	  root			4096 Dec  7 01:20 lib/
+drwxr-xr-x	 2 root	  root			4096 Dec  7 01:20 man/
+-rw-r--r--	 1 root	  root			3720 Dec  2 11:13 README
+-rwx------	 1 root	  root			 714 Dec  2 11:13 remove.sh*
+drwxr-xr-x	 2 root	  root			4096 Dec  7 01:20 sbin/
+</pre>
+
+</div>
+
+<h3><a name="distribution_contents" id="distribution_contents">1.0.0 Distribution contents</a></h3>
+<div class="level3">
+<pre class="file">
+[root@dvorkin local]# ls -1 -R /usr/local/vspd-1.11-dist/
+/usr/local/vspd-1.11-dist/:
+bin/
+/* binaries and startup scripts templates */
+configure*
+/* configuration script for building VSP module */
+etc/
+/* configuration files templates */
+include/
+/* &lt;empty&gt; */
+install.sh*
+/* main installation script */
+lib/
+/* module building directory */
+man/
+/* manuals */
+README
+/* comments */
+remove.sh*
+/* uninstall script */
+sbin/
+/* VSPDaemon directory */
+
+/usr/local/vspd-1.11-dist/bin:
+vspd.sh.in*
+/* VSPDaemon startup script template */
+vspm.sh.in*
+/* VSPModule startup script template */
+vsptty*
+/* simple tty interaction utility */
+
+/usr/local/vspd-1.11-dist/etc:
+vspd.conf.in
+/* VSPDaemon configuration file template */
+vspd.conf.sample
+/* VSPDaemon configuration file example */
+vspm.conf
+/* VSPModule configuration file template */
+
+/usr/local/vspd-1.11-dist/include:
+/* &lt;empty&gt; */
+
+/usr/local/vspd-1.11-dist/lib:
+src/
+/* VSPModule sources */
+
+/usr/local/vspd-1.11-dist/lib/src:
+bsd/
+/* BSD-specific makefiles directory */
+config.h
+/* module parameters */
+ioctl_sys.h
+ioctl_vspd.h
+ioctl_vspm.h
+/* ioctl headers */
+linux/
+/* LINUX-specific makefiles directory */
+Makefile-fake.in
+/* fake makefile */
+Makefile.in
+/* general makefile template (includes OS-specific makefile) */
+_makewrapper.in
+/* make wrapper (called automatically from install.sh) */
+README
+/* README file */
+sysheaders.h
+/* system-specific headers */
+TODO
+/* driver developer comments */
+vspm.c
+/* VSPModule source */
+vspm.h
+/* VSPModule header */
+
+/usr/local/vspd-1.11-dist/lib/src/bsd:
+Makefile-4.3.in
+/* BSD-4.3 makefile */
+
+/usr/local/vspd-1.11-dist/lib/src/linux:
+Makefile-2.2-flags
+/* Linux 2.2.x specific compilation flags */
+Makefile-2.2.in
+/* Linux-2.2 specific makefile template */
+Makefile-2.4-flags
+/* Linux 2.4.x specific compilation flags */
+Makefile-2.4.in
+/* Linux-2.4 specific makefile template */
+Makefile-2.6.in
+/* Linux-2.6 specific makefile template */
+
+/usr/local/vspd-1.11-dist/man:
+vspd
+vspm
+/* VSPD manuals */
+
+/usr/local/vspd-1.11-dist/sbin:
+vspd*
+/* VSPDaemon binary */
+</pre>
+
+</div>
+
+<h3><a name="running_the_installation_script" id="running_the_installation_script">1.0.1 Running the installation script :</a></h3>
+<div class="level3">
+<pre class="file">
+[root@dvhome local]# cd /usr/local/vspd-1.11-dist/
+[root@dvhome vspd-1.11-dist]# ./install.sh /usr/local/vspd
+installing to /usr/local/vspd
+creating cache ./config.cache
+checking for target KERNEL... ok
+checking for target KERNEL name... linux
+checking for target KERNEL version... 2.4.22-10mdk
+checking for target KERNEL subversion... 2.4
+checking for target KERNEL path... /usr/src/linux-2.4.22-10mdk
+checking for target MAKE_ARGS... make
+checking for DEVFS... ok
+********************* checking for required programms ******************
+checking for gcc... gcc
+checking whether the C compiler (gcc  ) works... yes
+checking whether the C compiler (gcc  ) is a cross-compiler... no
+checking whether we are using GNU C... yes
+checking whether gcc accepts -g... yes
+checking for install... /usr/bin/install
+checking for cp... /bin/cp
+****************** checking for required header files ******************
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for ctype.h... yes
+*********************** checking for functions *************************
+checking for strerror... yes
+************************ current settings ******************************
+CC: gcc
+CXX version: gcc-3.3.1 (GCC) 3.3.1 (Mandrake Linux 9.2 3.3.1-2mdk)
+Copyright (C) 2003 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+CXXFLAGS:
+EXTRA_DEFINES:
+EXTRA_SOURCES:
+Using kernel: linux
+Using kernel version: 2.4.22-10mdk
+Using kernel subversion: 2.4
+********************** making config.h and Makefile ********************
+updating cache ./config.cache
+creating ./config.status
+creating lib/src/_makewrapper
+creating lib/src/Makefile
+creating lib/src/linux/Makefile-2.4
+creating ./bin/vspd.sh
+creating ./bin/vspm.sh
+creating ./etc/vspd.conf
+compiling the vspm kernel module ...
+gcc -Wall -O2 -fomit-frame-pointer  -I./ -D__KERNEL__ -DLINUX -DMODULE -DEXPORT_SYMTAB 
+	  -I/usr/src/linux-2.4.22-10mdk/include/ -c vspm.c -o ../vspm.ko 
+	 /* line split for documentation purposes - the two above should be one line. */
+... (skipped) ...
+installing ...
+installing vspm ...
+installing vspd ...
+setting runlevels for vspm ...
+setting runlevels for vspd ...
+</pre>
+<table class="inline">
+	<tr class="row0">
+		<td class="col0">%N%</td><td class="col1">it may take a long time to compile VSPModule on 2.6.x kernels, because some Linux distributions do not include precompiled kernel source tree.</td>
+	</tr>
+</table>
+
+</div>
+
+<h2><a name="installation_results" id="installation_results">1.1 Installation results</a></h2>
+<div class="level2">
+<pre class="file">
+[root@dvorkin vspd-1.11-dist]# ls -1 -R /usr/local/vspd/
+/usr/local/vspd/:
+bin/
+/* vsptty and startup scripts */
+etc/
+/* configuration files */
+lib/
+/* compiled VSPModule */
+man/
+/* manuals and docs*/
+sbin/
+/* VSPDaemon directory */
+var/
+/* logs directory */
+
+/usr/local/vspd/bin:
+vspd.sh*
+/* VSPDaemon startup script */
+vspm.sh*
+/* VSPModule startup script */
+vsptty*
+/* simple tty interaction programm */
+
+/usr/local/vspd/etc:
+vspd.conf
+/* running VSPDaemon configuration */
+vspd.conf.in
+/* VSPDaemon configuration template */
+vspd.conf.sample
+/* VSPDaemon configuration example */
+vspm.conf
+/* VSPModule configuration */
+
+/usr/local/vspd/lib:
+vspm.ko*
+/* VSPModule compiled binary */
+
+/usr/local/vspd/man:
+vspd
+vspm
+/* VSPDaemon and VSPModule manuals */
+
+/usr/local/vspd/sbin:
+vspd*
+/* VSPDaemon binary */
+
+/usr/local/vspd/var:
+/* directory for log files */
+</pre>
+
+</div>
+
+<h3><a name="advanced_installation_notes" id="advanced_installation_notes">1.1.1 Advanced installation notes</a></h3>
+<div class="level3">
+
+<p>
+
+install.sh shell script takes one command-line parameter: Installation path.
+
+</p>
+<pre class="file">
+[root@dvorkin vspd-1.11-dist]# ./install.sh
+You don&#039;t have to install to the same path
+Use ./install.sh &lt;path&gt;
+</pre>
+
+<p>
+
+First, it runs ./configure script. The ./configure script takes system enviroment and creates ./lib/src/_makewrapper (from ./lib/src/_makewrapper.in), ./lib/src/Makefile (from ./lib/src/Makefile.in) and ./lib/src/linux/Makefile-X.Y (from ./lib/src/linux/Makefile-x.y.in, where &lt;x.y&gt; is linux kernel subversion code). The ./configure script takes a number of parameters:
+
+</p>
+<pre class="file">
+[root@dvorkin vspd-1.11-dist]# ./
+[root@dvorkin vspd-1.11-dist]# ./configure --help
+Usage: configure [options] [host]
+Options:
+Configuration:
+  --cache-file=FILE		 cache test results in FILE
+... (skipped) ...
+--enable and --with options recognized:
+  --with-kernel=&lt;name&gt;:		 compile for &lt;name&gt; kernel (example: &quot;linux&quot;)
+  --with-kernel-ver=&lt;ver&gt;:	 compile for &lt;ver&gt; kernel version (example: &quot;2.4.22-10mdk&quot;)
+  --with-kernel-subver=&lt;ver&gt;: compile for &lt;subver&gt; kernel version (example: &quot;2.4&quot;)
+</pre>
+
+<p>
+
+You can change script parameters by editing install.sh
+</p>
+
+<p>
+./configure script tries to detect your kernel version and use suitable kernel sources from /usr/src/linux-x.y…/. You must have kernel sources in /usr/src/linux-…/ directory to successfully install VSPDL
+</p>
+
+<p>
+Second, install.sh runs /usr/local/vspd-x.yy-dist/lib/src/_makewrapper script, created from /usr/local/vspd-x.yy-dist/lib/src/_makewrapper.in by ./configure script. ./_makewrapper returns 0 (on success) or error code (on compilation error) to ./install.sh shell sript. ./_makewrapper runs “make &lt;<acronym title="Operating System">OS</acronym>-specific params&gt;”.  It uses ./lib/src/linux/Makefile-x.y, included in ./lib/src/Makefile.
+</p>
+
+<p>
+You can change compilation parameters (for example, to compile for other kernel subversions) by editing ./lib/src/Makefile and ./lib/src/linux/Makefile-x.y.
+</p>
+
+<p>
+Third, install.sh places startup scripts into your RC.* directories, and creates /usr/local/vspd directory tree.
+</p>
+
+</div>
+
+<h2><a name="error_reporting_during_the_installation" id="error_reporting_during_the_installation">1.2 Error reporting during the installation</a></h2>
+<div class="level2">
+<pre class="file">
+[root@dvorkin vspd-1.11-dist]# cd /usr/local/vspd-1.11-dist/
+[root@dvorkin vspd-1.11-dist]# uname -a &gt;&gt; ./report.txt
+[root@dvorkin vspd-1.11-dist]# ./install.sh /usr/local/vspd &gt;&gt; ./report.txt 2&gt;&gt; ./report.txt
+[root@dvorkin vspd-1.11-dist]# cat ./lib/src/Makefile &gt;&gt; ./report.txt
+[root@dvorkin vspd-1.11-dist]# cat ./lib/src/linux/* &gt;&gt; ./report.txt
+</pre>
+
+<p>
+
+Please, attach ./report.txt to your message when requesting support from Tibbo.
+</p>
+
+</div>
+
+<h1><a name="configuration" id="configuration">2. Configuration</a></h1>
+<div class="level1">
+
+<p>
+
+There are four configuration files in the VSPD installation directory:
+
+</p>
+<pre class="file">
+[root@dvorkin vspd-1.11-dist]# ls /usr/local/vspd/etc/
+[root@dvorkin src]# ls -1 /usr/local/vspd/etc
+vspd.conf
+/* VSPDaemon configuration file */
+vspd.conf.in
+/* VSPDaemon configuration template */
+vspd.conf.sample
+/* VSPDaemon configuration example */
+vspm.conf
+/* VSPModule configuration file */
+</pre>
+
+</div>
+
+<h2><a name="vspmodule_configuration" id="vspmodule_configuration">2.1 VSPModule configuration</a></h2>
+<div class="level2">
+<pre class="file">
+[root@dvorkin etc]# cat /usr/local/vspd/etc/vspm.conf
+# Virtual Serial Port module config file
+# Copyright (C) 2003, Tibbo Technology Inc.
+
+# ----- module section
+# You may use # as comment
+# For example if you want to set MAXDEV as default,
+# you have to comment the string
+# &quot;MAXDEV=100&quot; -&gt; &quot;#MAXDEV=100&quot;
+
+# maximum number of devices
+# default MAXDEV=128
+#MAXDEV=128
+
+# major number for serial devices
+# set major number, if you aren&#039;t using devfs
+# default MAJOR0=100
+MAJOR0=100
+# major number for daemon devices
+MAJOR1=101
+
+# debug level
+# 0 = no debug
+# 1 = simple kernel messages
+# 2 = development debug
+# 3 = development debug with &lt;select&gt;
+# default DEBUG=1
+DEBUG=0
+
+# ----- /dev section
+# set DEVFS=true if you are using devfs
+# otherwise set DEVFS=false
+# set DEVFS=auto if you not sure about your devfs state
+# default: auto
+# DEVFS=auto
+
+# device files prefix
+# default FNAME=vsp
+FNAME=vsp
+
+# group name for the device files
+# default FGRP=root
+FGRP=root
+
+# access mode for the device files
+# default FMOD=660
+FMOD=660
+</pre>
+
+<p>
+
+You don&#039;t have to edit this file - all variables are set up to correct values automatically at the installation phase. All you need to know is how to set up debug level. For VSPModule debugging you have to change “DEBUG=…” variable to the appropriate value and restart VSPModule. All messages will be sent to syslog (/var/log/messages usually).
+</p>
+
+</div>
+
+<h2><a name="vspdaemon_configuration" id="vspdaemon_configuration">2.2 VSPDaemon configuration</a></h2>
+<div class="level2">
+<pre class="file">
+[root@dvorkin etc]# cat /usr/local/vspd/etc/vspd.conf
+...(skipped)...
+</pre>
+
+<p>
+
+Change all IPs and PORTs in vspd.conf to suitable values, in the following sections:
+
+</p>
+<pre class="file">
+&lt;bind .../&gt;, =&lt;vsp num=...&gt;&lt;bind .../&gt;&lt;/vsp&gt;, &lt;vsp num=...&gt;&lt;destination .../&gt;&lt;/vsp&gt;
+</pre>
+
+<p>
+
+(Device servers should be configured to allow connections from or connect to these IP addresses)
+</p>
+
+<p>
+Choose connection mode for your device using the following section:
+
+</p>
+<pre class="file">
+&lt;vsp ...&gt;&lt;connection .../&gt;&lt;/vsp&gt;
+</pre>
+
+<p>
+
+Don&#039;t forget to put device servers into the corresponding connection mode.
+</p>
+
+<p>
+Optionally, change packet settings:
+
+</p>
+<pre class="file">
+&lt;vsp ...&gt;&lt;packets .../&gt;&lt;/vsp&gt;
+</pre>
+
+<p>
+Uncomment
+
+</p>
+<pre class="file">
+&lt;!-- &lt;log type=&quot;file&quot; level=&quot;DBG&quot; path=&quot;var/dev.0.log&quot;/&gt; --&gt; 
+</pre>
+
+<p>
+
+string for debugging output:
+
+</p>
+<pre class="file"> 
+&lt;log type=&quot;file&quot; level=&quot;DBG&quot; path=&quot;var/dev.0.log&quot;/&gt;
+</pre>
+
+<p>
+and replace
+</p>
+<pre class="file">
+&lt;!-- Example: &lt;dump port=&quot;yes&quot; path=&quot;var/vspd.log&quot;/&gt; --&gt;
+</pre>
+
+<p>
+by
+</p>
+<pre class="file">
+&lt;dump port=&quot;yes&quot; path=&quot;var/vspd.0.log&quot;/&gt;
+</pre>
+
+<p>
+to see hexadecimal dump of data transferred through the virtual serial ports.
+</p>
+
+</div>
+
+<h1><a name="startingstoppingrestarting" id="startingstoppingrestarting">3. Starting/stopping/restarting</a></h1>
+<div class="level1">
+
+<p>
+
+There are two startup scripts installed into /etc/rc.d/init.d/ directory and started during <acronym title="Operating System">OS</acronym> boot:
+
+</p>
+<pre class="file">
+[root@dvorkin etc]# ls -l /etc/rc.d/init.d/vsp*
+-rwxr--r--	 1 root	  root			2439 Dec  7 12:28 /etc/rc.d/init.d/vspm*
+-rwxr--r--	 1 root	  root			2290 Dec  7 12:28 /etc/rc.d/init.d/vspd*
+</pre>
+
+<p>
+
+and symlinks in /etc/rc.d/rc&lt;X&gt;.d/vsp*.
+</p>
+
+<p>
+Run these scripts without parameters to see help:
+
+</p>
+<pre class="file">
+[root@dvorkin etc]# /etc/rc.d/init.d/vspd
+Usage /etc/rc.d/init.d/vspd {start|stop|restart|reloadconf|status|extstatus}
+[root@dvorkin etc]# /etc/rc.d/init.d/vspm
+Usage /etc/rc.d/init.d/vspm {start|stop|restart|status|conf|modinfo}
+</pre>
+
+<p>
+
+You can call startup scripts from command line. Here are some examples:
+
+</p>
+<pre class="file">
+[root@dvorkin etc]# /etc/rc.d/init.d/vspm start
+installing vspm.ko module to kernel...	[  OK  ]
+[root@dvorkin etc]# /etc/rc.d/init.d/vspm restart
+removing vspm.ko module from kernel...	[  OK  ]
+installing vspm.ko module to kernel...	[  OK  ]
+[root@dvorkin etc]# /etc/rc.d/init.d/vspm status
+vspm.ko module is loaded
+[root@dvorkin etc]# /etc/rc.d/init.d/vspm conf
+module name: vspm.ko
+module path: /usr/local/vspd/lib/
+module conf: /usr/local/vspd/etc/vspm.conf
+insmod  : /sbin/insmod
+rmmod	: /sbin/rmmod
+lsmod	: /sbin/lsmod
+modinfo : /sbin/modinfo
+[root@dvorkin etc]# /etc/rc.d/init.d/vspm modinfo
+filename:	 /usr/local/vspd/lib/vspm.ko
+description: &quot;Virtual Serial Port driver&quot;
+author:		&quot;(C) by Tibbo Technology Inc., 2004&quot;
+license:	  &quot;GPL&quot;
+parm:		  major0 int, description &quot;Major number for tty devices&quot;
+parm:		  major1 int, description &quot;Major number for daemon interface devices&quot;
+parm:		  debug int, description &quot;Debug level (0-2)&quot;
+parm:		  maxdev int, description &quot;Max. number of devices&quot;
+[root@dvorkin etc]# /etc/rc.d/init.d/vspd start
+starting vspd...			[  OK  ]
+[root@dvorkin etc]# /etc/rc.d/init.d/vspd restart
+stopping vspd...			[  OK  ]
+starting vspd...			[  OK  ]
+[root@dvorkin etc]# /etc/rc.d/init.d/vspd reloadconf
+tell vspd to reload configuration...	[  OK  ]
+[root@dvorkin etc]# /etc/rc.d/init.d/vspd status
+vspd is loaded
+[root@dvorkin etc]# /etc/rc.d/init.d/vspd extstatus
+vspd is loaded
+[root@dvorkin etc]# /etc/rc.d/init.d/vspd stop
+stopping vspd...			[  OK  ]
+[root@dvorkin etc]# /etc/rc.d/init.d/vspd extstatus
+/var/run/vspd.pid not found
+vspd is NOT loaded
+</pre>
+
+<p>
+To start VSPD run /etc/rc.d/init.d/vspm followed by /etc/rc.d/init.d/vspd:
+
+</p>
+<pre class="file">
+[root@dvorkin etc]# /etc/rc.d/init.d/vspm start
+installing vspm.ko module to kernel...	[  OK  ]
+[root@dvorkin etc]# /etc/rc.d/init.d/vspd start
+starting vspd...			[  OK  ]
+</pre>
+
+<p>
+
+After calling /etc/rc.d/init.d/vspm start check if there are device files created in /dev/:
+
+</p>
+<pre class="file">
+[root@dvorkin etc]# ls -l -R /dev/vsp*
+/dev/vsp:
+total 0
+crw-------	 1 root	  root	  101,	0 Jan  1  1970 vspd0
+... (skipped) ...
+crw-------	 1 root	  root	  101,	0 Jan  1  1970 vspd127
+crw-------	 1 root	  root	  101,	0 Jan  1  1970 vsps0
+... (skipped) ...
+crw-------	 1 root	  root	  101,	0 Jan  1  1970 vsps127
+</pre>
+
+<p>
+
+The /dev/vsps&lt;N&gt; (or /dev/vsp/vsps&lt;N&gt;) device files are virtual serial ports to be used by your device control software,
+/dev/vspd&lt;N&gt; (/dev/vsp/vspd&lt;N&gt;) device files are used for internal purposes by VSPDL itself and should not be opened by third-party software.
+</p>
+
+</div>
+
+<h2><a name="error_reporting_during_startup" id="error_reporting_during_startup">3.1 Error reporting during startup</a></h2>
+<div class="level2">
+<pre class="file">
+[root@dvorkin etc]# uname -a &gt;&gt; ./report.txt
+[root@dvorkin etc]# /etc/rc.d/init.d/vspm start &gt;&gt; ./report.txt
+[root@dvorkin etc]# /etc/rc.d/init.d/vspd start &gt;&gt; ./report.txt
+[root@dvorkin etc]# cat /usr/local/vspd/etc/vspm.conf &gt;&gt; ./report.txt
+[root@dvorkin etc]# cat /usr/local/vspd/etc/vspd.conf &gt;&gt; ./report.txt
+[root@dvorkin etc]# tail -n 1000 /var/log/messages &gt;&gt; ./report.txt
+[root@dvorkin etc]# tail -n 1000 /usr/local/vspd/var/vspd.log &gt;&gt; ./report.txt
+[root@dvorkin etc]# tail -n 1000 /usr/local/vspd/var/dev.0.log &gt;&gt; ./report.txt
+</pre>
+
+</div>
+
+<h1><a name="testingdebugging" id="testingdebugging">4. Testing/debugging</a></h1>
+<div class="level1">
+
+<p>
+
+Stop VSPmodule and VSPDaemon
+
+</p>
+<pre class="file">
+#/etc/rc.d/init.d/vspd stop
+#/etc/rc.d/init.d/vspm stop
+</pre>
+
+<p>
+
+Set up debug mode:
+</p>
+
+<p>
+in /usr/local/vspd/etc/vspm.conf change
+</p>
+<pre class="file">
+DEBUG=0
+</pre>
+
+<p>
+to
+</p>
+<pre class="file">
+DEBUG=3
+</pre>
+
+<p>
+in /usr/local/vspd/etc/vspd.conf change
+</p>
+<pre class="file">
+&lt;!-- &lt;log type=&quot;file&quot; level=&quot;DBG&quot; path=&quot;var/dev.0.log&quot;/&gt; --&gt;
+</pre>
+
+<p>
+to
+</p>
+<pre class="file">
+&lt;log type=&quot;file&quot; level=&quot;DBG&quot; path=&quot;var/dev.0.log&quot;/&gt;
+</pre>
+
+<p>
+and
+
+</p>
+<pre class="file">
+&lt;!-- Example: &lt;dump port=&quot;yes&quot; path=&quot;var/vspd.log&quot;/&gt; --&gt;
+</pre>
+
+<p>
+
+to
+
+</p>
+<pre class="file">
+&lt;dump port=&quot;yes&quot; path=&quot;var/dev.0.log&quot;/&gt;
+</pre>
+
+<p>
+Startup VSModule:
+
+</p>
+<pre class="file">
+#/etc/rc.d/init.d/vspm start
+</pre>
+
+<p>
+
+Switch to the other console window and try to send data throw virtual ports :
+
+</p>
+<pre class="file">
+(1st console):#cat /dev/vsp/vsps0
+(2nd console):#echo &quot;testing - vspD&quot; &gt; /dev/vsp/vspd0
+</pre>
+
+<p>
+
+do you see “testing - vspD” on 1 console?
+
+</p>
+<pre class="file">
+(1st console):#cat /dev/vsp/vspd0
+(2nd console):#echo &quot;testing - vspS&quot; &gt; /dev/vsp/vsps0
+</pre>
+
+<p>
+
+do you see “testing - vspS” on 1st console?
+</p>
+
+<p>
+If you don&#039;t see any output, proceed to section 3.1
+Please, attach ./report.txt to your message when requesting support from Tibbo
+</p>
+
+<p>
+Start up VSPDaemon:
+
+</p>
+<pre class="file">
+[root@dvorkin etc]# /etc/rc.d/init.d/vspd start
+</pre>
+
+<p>
+
+Check if VSPDaemon running:
+
+</p>
+<pre class="file">
+[root@dvorkin etc]# ps auxw | grep &quot;vspd&quot;
+[root@dvorkin etc]# /etc/rc.d/init.d/vspd extstatus
+</pre>
+
+<p>
+
+If VSPDaemon is not running, proceed to section 3.1
+Please, attach ./report.txt to your message when requesting support from Tibbo
+</p>
+
+<p>
+Look at the /usr/local/vspd/var/dev.0.log:
+
+</p>
+<pre class="file">
+[root@dvorkin etc]# tail -f /usr/local/vspd/var/dev.0.log
+</pre>
+
+<p>
+
+Most problems (wrong IP/ports etc.) can be diagnosed by checking this log file.
+</p>
+
+<p>
+Make changes in /usr/local./vspd/etc/vspd.conf:
+
+</p>
+<pre class="file">
+		 &lt;connection rmode=&quot;server/client&quot; proto=&quot;tcp&quot; conmode=&quot;ondata&quot; timeout=&quot;5&quot; onthefly=&quot;outofband&quot;/&gt;
+</pre>
+
+<p>
+
+replace with
+
+</p>
+<pre class="file">
+		 &lt;connection rmode=&quot;server&quot; proto=&quot;tcp&quot; conmode=&quot;immediately&quot; timeout=&quot;5&quot; onthefly=&quot;disabled&quot;/&gt;
+</pre>
+
+<p>
+
+And restart VSPDaemon:
+
+</p>
+<pre class="file">
+[root@dvorkin etc]# /etc/rc.d/init.d/vspd restart
+</pre>
+
+<p>
+
+Call minicom:
+
+</p>
+<pre class="file">
+#minicom -o
+press &lt;Ctrl&gt; + &lt;A&gt;, &lt;O&gt;
+choose &quot;Serial port setup&quot;, press &lt;Enter&gt;
+press &lt;A&gt;, write /dev/vsp/vsps0, press &lt;Enter&gt;, press &lt;Enter&gt;
+choose &quot;Save setup as ...&quot;, press &lt;Enter&gt;,
+write &quot;vsps0&quot;, press &lt;Enter&gt;
+choose &quot;Exit&quot;, press &lt;Enter&gt;
+press &lt;Ctrl&gt;+&lt;A&gt;, &lt;Q&gt;, press &lt;Enter&gt;
+</pre>
+
+<p>
+
+(minicom interrupted). Call minicom again:
+
+</p>
+<pre class="file">
+#minicom -o vsps0
+</pre>
+
+<p>
+
+Open VSPD log in the second console window:
+
+</p>
+<pre class="file">
+(console 2)#tail -f /usr/local/vspd/var/dev.0.log
+</pre>
+
+<p>
+
+you should see message: “port opened”
+</p>
+
+<p>
+Open telnet session in the third console window:
+
+</p>
+<pre class="file">
+(console 3)#telnet 10.1.1.1 3500
+</pre>
+
+<p>
+
+where 10.1.1.1 - ip addr from 
+
+</p>
+<pre class="file">
+&lt;bind .../&gt;
+</pre>
+
+<p>
+
+section of vspd.conf file and 3500 - port value from &lt;vsp …&gt;&lt;bind …/&gt;&lt;/vsp&gt; section from vspd.conf file.
+</p>
+
+<p>
+if connection was refused, check IP:port settings in vspd.conf file.
+Now VSPDL is ready for data transfer. Type string “test&lt;Enter&gt;” in the second
+console window (minicom) and look for the output in the third console window. Is “test” appeared in the output?
+</p>
+
+<p>
+Write string “test again&lt;Enter&gt;” in the third console and look to the second console. Is “test” appeared in the output?
+</p>
+
+</div>
+
+<h1><a name="questions_and_answers" id="questions_and_answers">5. Questions and answers</a></h1>
+<div class="level1">
+
+</div>
+
+<h2><a name="what_device_files_should_be_used_as_virtual_ttys" id="what_device_files_should_be_used_as_virtual_ttys">5.1 What device files should be used as virtual TTYs?</a></h2>
+<div class="level2">
+<pre class="file">
+/dev/vsps&lt;N&gt; (/dev/vsp/vsps&lt;N&gt;) are virtual TTY device files.
+/dev/vspd&lt;N&gt; (/dev/vsp/vspd&lt;N&gt;) are used by VSPDL for internal purposes.
+</pre>
+
+</div>
+
+<h2><a name="i_m_trying_to_run_minicom_devvdsp0_9600_and_it_returns_the_following_errors" id="i_m_trying_to_run_minicom_devvdsp0_9600_and_it_returns_the_following_errors">5.2 I&#039;m trying to run minicom /dev/vdsp0 9600 and it returns the following errors:</a></h2>
+<div class="level2">
+<pre class="file">
+[vspm] ioct1_D CMD0x5415 bad magic
+[vspm] ioct1_D CMD0x5401 bad magic
+[vspm] ioct1_D CMD0x5402 bad magic
+[vspm] ioct1_D CMD0x5418 bad magic
+</pre>
+
+<p>
+
+You should not open /dev/vspd&lt;N&gt; devices by minicom.
+Use /dev/vsps&lt;N&gt; devices instead.
+</p>
+
+</div>
+
+    <!-- wikipage stop -->
+  </div>
+
+
+
+</div>
+<!-- real main body/ -->
+</div>
+				<br/>
+				<p style="color:#828282;margin-left:15px;font-size:12px">&copy; Tibbo Technology Inc. 2001-2009&nbsp;&nbsp;
+
+<a href="javascript:if(confirm('http://old.tibbo.com/corporate/contacts.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://old.tibbo.com/corporate/contacts.html'" tppabs="http://old.tibbo.com/corporate/contacts.html">Contact Us</a>&nbsp;|&nbsp;<a href="javascript:if(confirm('http://old.tibbo.com/account.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://old.tibbo.com/account.html'" tppabs="http://old.tibbo.com/account.html">Account</a>				</p>
+			</td>
+		</tr>
+	</table>
+
+
+
+  
+  
+
+  <div class="clearer">&nbsp;</div>
+
+  
+
+
+<div class="no"><img src="../../lib/exe/indexer.php-id=fixed-vspdl-installation&1457462893.gif" tppabs="http://old.tibbo.com/kb/lib/exe/indexer.php?id=fixed%3Avspdl%3Ainstallation&1457462893" width="1" height="1" alt=""  /></div>
+
+
+</body>
+</html>
